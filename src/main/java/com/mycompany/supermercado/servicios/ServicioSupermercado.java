@@ -7,14 +7,26 @@ package com.mycompany.supermercado.servicios;
 import com.mycompany.supermercado.model.NoPerecedero;
 import com.mycompany.supermercado.model.Perecedero;
 import com.mycompany.supermercado.model.Producto;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author Jorge Alejandro V
  */
 public class ServicioSupermercado implements IServicioSupermercado{
+    
+    private static List<Producto> productos = new ArrayList();
 
+    @Override
+    public void adicionarProductos(Producto pro) {
+        if (pro != null) {
+            productos.add(pro);
+        }
+    }
+
+    
     @Override
     public Producto adicionarNoPerecedero(String nombre, int codigo, double precio, int cantidad, Date caducidad, double pesoUnidad) {
         Producto noPerecedero;
@@ -36,6 +48,18 @@ public class ServicioSupermercado implements IServicioSupermercado{
         }
         return perecedero;
     }
+
+    @Override
+    public void listarNoPerecedero(int codigo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void listarPerecedero(int codigo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    
     
     
 }
