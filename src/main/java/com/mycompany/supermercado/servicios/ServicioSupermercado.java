@@ -4,10 +4,24 @@
  */
 package com.mycompany.supermercado.servicios;
 
+import com.mycompany.supermercado.model.Producto;
+import java.util.Date;
+
 /**
  *
  * @author Jorge Alejandro V
  */
-public class ServicioSupermercado {
+public class ServicioSupermercado implements IServicioSupermercado{
+
+    @Override
+    public Producto adicionarNoPerecedero(String nombre, int codigo, double precio, int cantidad, Date caducidad, double pesoUnidad) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Producto adicionarPerecedero(String nombre, int codigo, double precio, int cantidad, Date caducidad, double pesoUnidad) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
     
 }
