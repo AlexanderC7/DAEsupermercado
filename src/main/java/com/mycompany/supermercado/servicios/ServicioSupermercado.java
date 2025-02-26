@@ -26,12 +26,11 @@ public class ServicioSupermercado implements IServicioSupermercado{
         }
     }
 
-    
     @Override
-    public Producto adicionarNoPerecedero(String nombre, int codigo, double precio, int cantidad, Date caducidad, double pesoUnidad) {
+    public Producto adicionarNoPerecedero(String nombre, int codigo, double precio, int cantidad, String categoria, boolean garantia) {
         Producto noPerecedero;
         try {
-            noPerecedero = new NoPerecedero(nombre, codigo, precio, cantidad, nombre, codigo);
+            noPerecedero = new NoPerecedero(nombre, codigo, precio, cantidad, categoria, garantia);
         } catch (Exception e) {
             return null;
         }

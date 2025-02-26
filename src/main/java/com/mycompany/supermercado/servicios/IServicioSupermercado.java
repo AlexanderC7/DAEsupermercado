@@ -14,7 +14,7 @@ import java.util.Date;
 public interface IServicioSupermercado {
     public void adicionarProductos(Producto pro);
     public Producto adicionarPerecedero(String nombre, int codigo, double precio, int cantidad, Date caducidad, double pesoUnidad);
-    public Producto adicionarNoPerecedero(String nombre, int codigo, double precio, int cantidad, Date caducidad, double pesoUnidad);
+    public Producto adicionarNoPerecedero(String nombre, int codigo, double precio, int cantidad, String categoria, boolean garantia);
     public void buscarPerecedero();
     public void buscarNoPerecedero(int codigo);
     public void calcularPerecedero(int codigo);

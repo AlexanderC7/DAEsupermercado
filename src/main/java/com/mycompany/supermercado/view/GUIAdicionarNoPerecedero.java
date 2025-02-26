@@ -44,7 +44,11 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         chkGarantia = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Adicionar Producto No Perecedero");
+        setPreferredSize(new java.awt.Dimension(400, 600));
+        setResizable(false);
 
+        btnCrearNoPerecedero.setBackground(new java.awt.Color(255, 153, 102));
         btnCrearNoPerecedero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCrearNoPerecedero.setText("Crear");
         btnCrearNoPerecedero.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -53,6 +57,11 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
                 btnCrearNoPerecederoActionPerformed(evt);
             }
         });
+
+        scrollPanelCrear.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPanelCrear.setPreferredSize(new java.awt.Dimension(400, 620));
+
+        panelCrear.setPreferredSize(new java.awt.Dimension(400, 600));
 
         lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblNombre.setText("Nombre del producto");
@@ -74,7 +83,7 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         lblPrecio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPrecio.setText("Precio unidad");
 
-        ftxtPrecio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("¤¤#,##0.00"))));
+        ftxtPrecio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("¤#,##0"))));
         ftxtPrecio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         lblCantidad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -120,7 +129,7 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
                         .addComponent(ftxtCantidad)
                         .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblGarantia)))
-                .addContainerGap(594, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         panelCrearLayout.setVerticalGroup(
             panelCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +158,7 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
                 .addComponent(lblGarantia)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chkGarantia)
-                .addContainerGap(347, Short.MAX_VALUE))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
 
         scrollPanelCrear.setViewportView(panelCrear);
@@ -161,16 +170,16 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCrearNoPerecedero, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
-                    .addComponent(scrollPanelCrear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE))
+                    .addComponent(scrollPanelCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                    .addComponent(btnCrearNoPerecedero, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollPanelCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(scrollPanelCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(btnCrearNoPerecedero)
                 .addContainerGap())
         );

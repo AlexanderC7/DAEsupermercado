@@ -13,12 +13,12 @@ import com.mycompany.supermercado.exceptions.ProductoException;
 public class NoPerecedero extends Producto{
     
     private String categoria;
-    private int stock;
+    private boolean garantia;
     
-    public NoPerecedero(String nombre, int codigo, double precio, int cantidad, String categoria, int stock) throws ProductoException {
+    public NoPerecedero(String nombre, int codigo, double precio, int cantidad, String categoria, boolean garantia) throws ProductoException {
         super(nombre, codigo, precio, cantidad);
         setCategoria(categoria);
-        setStock(stock);
+        setGarantia(garantia);
     }
 
     @Override
@@ -73,16 +73,12 @@ public class NoPerecedero extends Producto{
         this.categoria = categoria;
     }
 
-    public int getStock() {
-        return stock;
+    public boolean getGarantia() {
+        return garantia;
     }
 
-    public void setStock(int stock) throws ProductoException {
-        if (stock <= 0) {
-            throw new ProductoException("error asignando stock");
-            
-        }
-        this.stock = stock;
+    public void setGarantia(boolean garantia) throws ProductoException {
+        this.garantia = garantia;
     }
     
     
