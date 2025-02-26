@@ -4,6 +4,8 @@
 
 package com.mycompany.supermercado;
 
+import com.mycompany.supermercado.view.GUIPrincipal;
+
 /**
  *
  * @author Jorge Alejandro V
@@ -11,6 +13,7 @@ package com.mycompany.supermercado;
 public class Supermercado {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        GUIPrincipal gui = new GUIPrincipal();
+        gui.setVisible(true);
     }
 }
