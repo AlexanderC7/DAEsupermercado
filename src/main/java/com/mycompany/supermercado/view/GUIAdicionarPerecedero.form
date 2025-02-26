@@ -85,21 +85,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="chkGarantia" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="lblCategoria" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblNombre" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtNombre" max="32767" attributes="0"/>
-                              <Component id="lblCodigo" min="-2" max="-2" attributes="0"/>
-                              <Component id="ftxtCodigo" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lblPrecio" min="-2" max="-2" attributes="0"/>
-                              <Component id="ftxtPrecio" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lblCantidad" min="-2" max="-2" attributes="0"/>
-                              <Component id="ftxtCantidad" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lblGarantia" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="ftxtCaducidad" max="32767" attributes="0"/>
+                          <Component id="lblCaducidad" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNombre" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNombre" pref="216" max="32767" attributes="0"/>
+                          <Component id="lblCodigo" min="-2" max="-2" attributes="0"/>
+                          <Component id="ftxtCodigo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblPrecio" min="-2" max="-2" attributes="0"/>
+                          <Component id="ftxtPrecio" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblCantidad" min="-2" max="-2" attributes="0"/>
+                          <Component id="ftxtCantidad" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblpeso" min="-2" max="-2" attributes="0"/>
+                          <Component id="ftxtPeso" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="165" max="32767" attributes="0"/>
                   </Group>
@@ -125,14 +123,14 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="ftxtCantidad" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblCategoria" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblCaducidad" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblGarantia" min="-2" max="-2" attributes="0"/>
+                      <Component id="ftxtCaducidad" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="lblpeso" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="chkGarantia" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="177" max="32767" attributes="0"/>
+                      <Component id="ftxtPeso" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="171" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -211,56 +209,41 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblCategoria">
+            <Component class="javax.swing.JLabel" name="lblCaducidad">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Categor&#xed;a"/>
+                <Property name="text" type="java.lang.String" value="Caducidad"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JFormattedTextField" name="ftxtCaducidad">
               <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="0" type="1"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="10">
-                    <StringItem index="0" value="Alimentos No Perecederos"/>
-                    <StringItem index="1" value="Art&#xed;culos de Cocina"/>
-                    <StringItem index="2" value="Bater&#xed;as y Pilas"/>
-                    <StringItem index="3" value="Herramientas y Ferreter&#xed;a"/>
-                    <StringItem index="4" value="Hogar y Decoraci&#xf3;n"/>
-                    <StringItem index="5" value="Papel y Desechables"/>
-                    <StringItem index="6" value="Productos de Aseo Personal"/>
-                    <StringItem index="7" value="Productos de Limpieza"/>
-                    <StringItem index="8" value="Productos para Mascotas"/>
-                    <StringItem index="9" value="&#xda;tiles de Oficina y Escolar"/>
-                  </StringArray>
-                </Property>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblGarantia">
+            <Component class="javax.swing.JLabel" name="lblpeso">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Garant&#xed;a"/>
+                <Property name="text" type="java.lang.String" value="Peso (Kg)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="chkGarantia">
+            <Component class="javax.swing.JFormattedTextField" name="ftxtPeso">
               <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#0.00" subtype="-1" type="0"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Tiene garant&#xed;a"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkGarantiaActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
