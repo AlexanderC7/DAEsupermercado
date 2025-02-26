@@ -6,6 +6,8 @@ package com.mycompany.supermercado.view;
 
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
+
 
 /**
  *
@@ -30,6 +32,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblRazonSocial = new javax.swing.JLabel();
         menuBarPrincipal = new javax.swing.JMenuBar();
         menuArchivo = new javax.swing.JMenu();
         itemArchivoSalir = new javax.swing.JMenuItem();
@@ -49,10 +52,23 @@ public class GUIPrincipal extends javax.swing.JFrame {
         itemAyudaAcerca = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Supermercado Principal");
+        setBackground(new java.awt.Color(153, 153, 153));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(1920, 1080));
 
-        menuArchivo.setText("Archivo");
+        lblRazonSocial.setFont(new java.awt.Font("Rockwell", 2, 48)); // NOI18N
+        lblRazonSocial.setForeground(new java.awt.Color(255, 153, 102));
+        lblRazonSocial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRazonSocial.setText("Supermercado \"Donde los electrónicos\"");
 
+        menuArchivo.setText("Archivo");
+        menuArchivo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        itemArchivoSalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_BACK_SPACE, 0));
+        itemArchivoSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemArchivoSalir.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_salir.png")));
         itemArchivoSalir.setText("Salir");
         itemArchivoSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,45 +80,99 @@ public class GUIPrincipal extends javax.swing.JFrame {
         menuBarPrincipal.add(menuArchivo);
 
         menuPerecedero.setText("No Perecedero");
+        menuPerecedero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        menuPerecedero.setMargin(new java.awt.Insets(6, 6, 6, 6));
 
+        itemPerecederoAdicionar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemPerecederoAdicionar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemPerecederoAdicionar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_agregar.png")));
         itemPerecederoAdicionar.setText("Adicionar producto");
+        itemPerecederoAdicionar.setMargin(new java.awt.Insets(6, 6, 6, 6));
         menuPerecedero.add(itemPerecederoAdicionar);
 
+        itemPerecederoBuscar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemPerecederoBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemPerecederoBuscar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_buscar.png")));
         itemPerecederoBuscar.setText("Buscar producto");
+        itemPerecederoBuscar.setMargin(new java.awt.Insets(6, 6, 6, 6));
         menuPerecedero.add(itemPerecederoBuscar);
 
+        itemPerecederoCalcular.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemPerecederoCalcular.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemPerecederoCalcular.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_calcular.png")));
         itemPerecederoCalcular.setText("Calcular producto");
+        itemPerecederoCalcular.setMargin(new java.awt.Insets(6, 6, 6, 6));
         menuPerecedero.add(itemPerecederoCalcular);
 
+        itemPerecederoEliminar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemPerecederoEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemPerecederoEliminar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_eliminar.png")));
         itemPerecederoEliminar.setText("Eliminar producto");
+        itemPerecederoEliminar.setMargin(new java.awt.Insets(6, 6, 6, 6));
+        itemPerecederoEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemPerecederoEliminarActionPerformed(evt);
+            }
+        });
         menuPerecedero.add(itemPerecederoEliminar);
 
+        itemPerecederoListar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemPerecederoListar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemPerecederoListar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_listar.png")));
         itemPerecederoListar.setText("Listar productos");
         menuPerecedero.add(itemPerecederoListar);
 
         menuBarPrincipal.add(menuPerecedero);
 
         menuNoPerecedero.setText("Perecedero");
+        menuNoPerecedero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
+        itemNoPerecederoAdicionar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemNoPerecederoAdicionar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemNoPerecederoAdicionar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_agregar.png")));
         itemNoPerecederoAdicionar.setText("Adicionar producto");
+        itemNoPerecederoAdicionar.setMargin(new java.awt.Insets(6, 6, 6, 6));
         menuNoPerecedero.add(itemNoPerecederoAdicionar);
 
+        itemNoPerecederoBuscar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemNoPerecederoBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemNoPerecederoBuscar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_buscar.png")));
         itemNoPerecederoBuscar.setText("Buscar producto");
+        itemNoPerecederoBuscar.setMargin(new java.awt.Insets(6, 6, 6, 6));
         menuNoPerecedero.add(itemNoPerecederoBuscar);
 
+        itemNoPerecederoCalcular.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemNoPerecederoCalcular.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemNoPerecederoCalcular.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_calcular.png")));
         itemNoPerecederoCalcular.setText("Calcular producto");
+        itemNoPerecederoCalcular.setMargin(new java.awt.Insets(6, 6, 6, 6));
         menuNoPerecedero.add(itemNoPerecederoCalcular);
 
+        itemNoPerecederoEliminar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemNoPerecederoEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemNoPerecederoEliminar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_eliminar.png")));
         itemNoPerecederoEliminar.setText("Eliminar producto");
+        itemNoPerecederoEliminar.setMargin(new java.awt.Insets(6, 6, 6, 6));
+        itemNoPerecederoEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemNoPerecederoEliminarActionPerformed(evt);
+            }
+        });
         menuNoPerecedero.add(itemNoPerecederoEliminar);
 
+        itemNoPerecederoListar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemNoPerecederoListar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemNoPerecederoListar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_listar.png")));
         itemNoPerecederoListar.setText("Listar productos");
         menuNoPerecedero.add(itemNoPerecederoListar);
 
         menuBarPrincipal.add(menuNoPerecedero);
 
         menuAyuda.setText("Ayuda");
+        menuAyuda.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
+        itemAyudaAcerca.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemAyudaAcerca.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_info.png")));
         itemAyudaAcerca.setText("Acerca de...");
         itemAyudaAcerca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,11 +189,17 @@ public class GUIPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(663, Short.MAX_VALUE)
+                .addComponent(lblRazonSocial)
+                .addGap(396, 396, 396))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(352, 352, 352)
+                .addComponent(lblRazonSocial)
+                .addContainerGap(639, Short.MAX_VALUE))
         );
 
         pack();
@@ -134,8 +210,16 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itemArchivoSalirActionPerformed
 
     private void itemAyudaAcercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAyudaAcercaActionPerformed
-        JOptionPane.showMessageDialog(this, "Desarrollado por: Alejandro Vargas, Leandro Vergara, Jhon Cartagena.  Versión del aplicativo: 1.0", "Aviso legal", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Desarrollado por: \nAlejandro Vargas, Leandro Vergara, Jhon Cartagena.  \nVersión del aplicativo: 1.0", "Aviso legal", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_itemAyudaAcercaActionPerformed
+
+    private void itemPerecederoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPerecederoEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemPerecederoEliminarActionPerformed
+
+    private void itemNoPerecederoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNoPerecederoEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemNoPerecederoEliminarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itemArchivoSalir;
@@ -150,6 +234,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemPerecederoCalcular;
     private javax.swing.JMenuItem itemPerecederoEliminar;
     private javax.swing.JMenuItem itemPerecederoListar;
+    private javax.swing.JLabel lblRazonSocial;
     private javax.swing.JMenu menuArchivo;
     private javax.swing.JMenu menuAyuda;
     private javax.swing.JMenuBar menuBarPrincipal;
