@@ -34,9 +34,16 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         lblCodigo = new javax.swing.JLabel();
         ftxtCodigo = new javax.swing.JFormattedTextField();
+        lblPrecio = new javax.swing.JLabel();
+        ftxtPrecio = new javax.swing.JFormattedTextField();
+        lblCantidad = new javax.swing.JLabel();
+        ftxtCantidad = new javax.swing.JFormattedTextField();
+        lblCategoria = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        lblGarantia = new javax.swing.JLabel();
+        chkGarantia = new javax.swing.JCheckBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnCrearNoPerecedero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCrearNoPerecedero.setText("Crear");
@@ -64,17 +71,55 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         ftxtCodigo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         ftxtCodigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        lblPrecio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPrecio.setText("Precio unidad");
+
+        ftxtPrecio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("¤¤#,##0.00"))));
+        ftxtPrecio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        lblCantidad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCantidad.setText("Cantidad");
+
+        ftxtCantidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        ftxtCantidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        lblCategoria.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCategoria.setText("Categoría");
+
+        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alimentos No Perecederos", "Artículos de Cocina", "Baterías y Pilas", "Herramientas y Ferretería", "Hogar y Decoración", "Papel y Desechables", "Productos de Aseo Personal", "Productos de Limpieza", "Productos para Mascotas", "Útiles de Oficina y Escolar" }));
+
+        lblGarantia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblGarantia.setText("Garantía");
+
+        chkGarantia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        chkGarantia.setText("Tiene garantía");
+        chkGarantia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkGarantiaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelCrearLayout = new javax.swing.GroupLayout(panelCrear);
         panelCrear.setLayout(panelCrearLayout);
         panelCrearLayout.setHorizontalGroup(
             panelCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCrearLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(panelCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblNombre)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(lblCodigo)
-                    .addComponent(ftxtCodigo))
+                .addGroup(panelCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chkGarantia)
+                    .addGroup(panelCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblCategoria)
+                        .addComponent(lblNombre)
+                        .addComponent(txtNombre)
+                        .addComponent(lblCodigo)
+                        .addComponent(ftxtCodigo)
+                        .addComponent(lblPrecio)
+                        .addComponent(ftxtPrecio)
+                        .addComponent(lblCantidad)
+                        .addComponent(ftxtCantidad)
+                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblGarantia)))
                 .addContainerGap(594, Short.MAX_VALUE))
         );
         panelCrearLayout.setVerticalGroup(
@@ -86,9 +131,25 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblCodigo)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ftxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(351, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lblPrecio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ftxtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(lblCantidad)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ftxtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblCategoria)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblGarantia)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(chkGarantia)
+                .addContainerGap(347, Short.MAX_VALUE))
         );
 
         scrollPanelCrear.setViewportView(panelCrear);
@@ -97,11 +158,11 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(scrollPanelCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
-                    .addComponent(btnCrearNoPerecedero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCrearNoPerecedero, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
+                    .addComponent(scrollPanelCrear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -125,12 +186,24 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
 
+    private void chkGarantiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkGarantiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkGarantiaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearNoPerecedero;
+    private javax.swing.JCheckBox chkGarantia;
+    private javax.swing.JFormattedTextField ftxtCantidad;
     private javax.swing.JFormattedTextField ftxtCodigo;
+    private javax.swing.JFormattedTextField ftxtPrecio;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel lblCantidad;
+    private javax.swing.JLabel lblCategoria;
     private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblGarantia;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblPrecio;
     private javax.swing.JPanel panelCrear;
     private javax.swing.JScrollPane scrollPanelCrear;
     private javax.swing.JTextField txtNombre;

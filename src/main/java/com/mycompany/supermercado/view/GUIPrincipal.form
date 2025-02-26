@@ -58,6 +58,9 @@
                   <Insets value="[6, 6, 6, 6]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemPerecederoAdicionarActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itemPerecederoBuscar">
               <Properties>

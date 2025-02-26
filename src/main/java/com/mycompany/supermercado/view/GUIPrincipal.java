@@ -88,6 +88,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         itemPerecederoAdicionar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_agregar.png")));
         itemPerecederoAdicionar.setText("Adicionar producto");
         itemPerecederoAdicionar.setMargin(new java.awt.Insets(6, 6, 6, 6));
+        itemPerecederoAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemPerecederoAdicionarActionPerformed(evt);
+            }
+        });
         menuPerecedero.add(itemPerecederoAdicionar);
 
         itemPerecederoBuscar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -220,6 +225,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void itemNoPerecederoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNoPerecederoEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_itemNoPerecederoEliminarActionPerformed
+
+    private void itemPerecederoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPerecederoAdicionarActionPerformed
+        GUIAdicionarNoPerecedero guiNoPerecedero = new GUIAdicionarNoPerecedero();
+        guiNoPerecedero.setVisible(true);
+    }//GEN-LAST:event_itemPerecederoAdicionarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itemArchivoSalir;
