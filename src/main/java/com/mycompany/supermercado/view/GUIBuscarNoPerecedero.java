@@ -32,8 +32,8 @@ public class GUIBuscarNoPerecedero extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         panelResultados = new javax.swing.JPanel();
         lblResultados = new javax.swing.JLabel();
-        scrollPane = new javax.swing.JScrollPane();
-        tableResultados = new javax.swing.JTable();
+        scrollListaResultados = new javax.swing.JScrollPane();
+        listResultados = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Buscar producto no perecedero");
@@ -90,19 +90,14 @@ public class GUIBuscarNoPerecedero extends javax.swing.JFrame {
         lblResultados.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblResultados.setText("Resultados :");
 
-        tableResultados.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tableResultados.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Código", "Nombre", "Cantidad", "Categoría"
-            }
-        ));
-        scrollPane.setViewportView(tableResultados);
+        listResultados.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        listResultados.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Sin resultados" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        listResultados.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        scrollListaResultados.setViewportView(listResultados);
 
         javax.swing.GroupLayout panelResultadosLayout = new javax.swing.GroupLayout(panelResultados);
         panelResultados.setLayout(panelResultadosLayout);
@@ -114,7 +109,7 @@ public class GUIBuscarNoPerecedero extends javax.swing.JFrame {
                     .addGroup(panelResultadosLayout.createSequentialGroup()
                         .addComponent(lblResultados)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(scrollPane))
+                    .addComponent(scrollListaResultados))
                 .addContainerGap())
         );
         panelResultadosLayout.setVerticalGroup(
@@ -123,8 +118,8 @@ public class GUIBuscarNoPerecedero extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblResultados)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(scrollListaResultados, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -165,10 +160,10 @@ public class GUIBuscarNoPerecedero extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JLabel lblBusqueda;
     private javax.swing.JLabel lblResultados;
+    private javax.swing.JList<String> listResultados;
     private javax.swing.JPanel panelBuscar;
     private javax.swing.JPanel panelResultados;
-    private javax.swing.JScrollPane scrollPane;
-    private javax.swing.JTable tableResultados;
+    private javax.swing.JScrollPane scrollListaResultados;
     private javax.swing.JTextField txtBusqueda;
     // End of variables declaration//GEN-END:variables
 }

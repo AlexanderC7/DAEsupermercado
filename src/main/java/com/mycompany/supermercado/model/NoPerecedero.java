@@ -80,7 +80,11 @@ public class NoPerecedero extends Producto{
     public void setGarantia(boolean garantia) throws ProductoException {
         this.garantia = garantia;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Resultado:{" + "nombre=" + getNombre() + "codigo=" + getCodigo() + "precio=" + getPrecio() + "cantidad=" + getCantidad() + "categoria=" + getCategoria() + ", garantia=" + getGarantia() + '}';
+    }
     
     
     

@@ -70,4 +70,12 @@ public abstract class Producto {
         }
         this.cantidad = cantidad;
     }
+
+    @Override
+    public String toString() {
+        return "Producto{" + "nombre:" + nombre + ", codigo:" + codigo + ", precio:" + precio + ", cantidad:" + cantidad + '}';
+    }
+    
+    
+    
 }

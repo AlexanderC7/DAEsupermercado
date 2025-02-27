@@ -6,6 +6,7 @@ package com.mycompany.supermercado.servicios;
 
 import com.mycompany.supermercado.model.Producto;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -15,14 +16,14 @@ public interface IServicioSupermercado {
     public void adicionarProductos(Producto pro);
     public Producto adicionarPerecedero(String nombre, int codigo, double precio, int cantidad, Date caducidad, double pesoUnidad);
     public Producto adicionarNoPerecedero(String nombre, int codigo, double precio, int cantidad, String categoria, boolean garantia);
-    public void buscarPerecedero();
-    public void buscarNoPerecedero(int codigo);
+    public String buscarPerecedero(String nombre);
+    public String buscarNoPerecedero(String nombre);
     public void calcularPerecedero(int codigo);
     public void calcularNoPerecedero(int codigo);
-    public void listarPerecedero(int codigo);
-    public void listarNoPerecedero(int codigo);
-    public void eliminarPerecedero(int codigo);
-    public void eliminarNoPerecedero(int codigo);
+    public List <Producto> listarPerecedero();
+    public List <Producto> listarNoPerecedero();
+    public void eliminarPerecedero(String nombre);
+    public void eliminarNoPerecedero(String nombre);
     
     
 }

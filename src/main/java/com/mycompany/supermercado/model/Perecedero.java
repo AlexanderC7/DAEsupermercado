@@ -85,7 +85,11 @@ public class Perecedero extends Producto{
         this.pesoUnidad = pesoUnidad;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Resultado:{" + "nombre=" + getNombre() + "codigo=" + getCodigo() + "precio=" + getPrecio() + "cantidad=" + getCantidad() + "caducidad=" + getCaducidad() + ", pesoUnidad=" + getPesoUnidad() + '}';
+    }
+
     
     
 }

@@ -49,12 +49,27 @@ public class ServicioSupermercado implements IServicioSupermercado{
     }
 
     @Override
-    public void buscarNoPerecedero(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String buscarPerecedero(String nombre) {
+        for (Producto producto : productos) {
+            if (producto.getNombre().equalsIgnoreCase(nombre)){
+                return producto.toString();
+            }
+        }
+        return null;
     }
 
     @Override
-    public void buscarPerecedero() {
+    public String buscarNoPerecedero(String nombre) {
+        for (Producto producto : productos) {
+            if (producto.getNombre().equalsIgnoreCase(nombre)){
+                return producto.toString();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void calcularPerecedero(int codigo) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -64,31 +79,34 @@ public class ServicioSupermercado implements IServicioSupermercado{
     }
 
     @Override
-    public void calcularPerecedero(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List <Producto> listarPerecedero() {
+        return productos;
     }
 
     @Override
-    public void eliminarNoPerecedero(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List <Producto> listarNoPerecedero() {
+        return productos;
     }
 
     @Override
-    public void eliminarPerecedero(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void eliminarPerecedero(String nombre) {
+        for (Producto producto : productos) {
+            if (producto.getNombre().equalsIgnoreCase(nombre)) {
+                productos.remove(this);
+            }
+        }
     }
+
+    @Override
+    public void eliminarNoPerecedero(String nombre) {
+        for (Producto producto : productos) {
+            if (producto.getNombre().equalsIgnoreCase(nombre)) {
+                productos.remove(this);
+            }
+        }
+    }
+
     
-    @Override
-    public void listarNoPerecedero(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
-    @Override
-    public void listarPerecedero(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    
-    
     
 }
