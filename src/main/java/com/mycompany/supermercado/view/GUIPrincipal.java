@@ -79,7 +79,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         menuBarPrincipal.add(menuArchivo);
 
-        menuPerecedero.setText("No Perecedero");
+        menuPerecedero.setText("Perecedero");
         menuPerecedero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuPerecedero.setMargin(new java.awt.Insets(6, 6, 6, 6));
 
@@ -129,7 +129,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         menuBarPrincipal.add(menuPerecedero);
 
-        menuNoPerecedero.setText("Perecedero");
+        menuNoPerecedero.setText("No Perecedero");
         menuNoPerecedero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         itemNoPerecederoAdicionar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
