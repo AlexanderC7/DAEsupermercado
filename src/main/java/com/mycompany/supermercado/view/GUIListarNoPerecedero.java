@@ -4,19 +4,37 @@
  */
 package com.mycompany.supermercado.view;
 
+import com.mycompany.supermercado.model.NoPerecedero;
+import com.mycompany.supermercado.model.Producto;
+import com.mycompany.supermercado.servicios.ServicioSupermercado;
+import java.util.List;
+
 /**
  *
  * @author Alexander
  */
 public class GUIListarNoPerecedero extends javax.swing.JFrame {
 
+    private ServicioSupermercado servicioSupermercado;
     /**
      * Creates new form GUIListarPerecedero
      */
-    public GUIListarNoPerecedero() {
+    public GUIListarNoPerecedero(ServicioSupermercado servicio) {
+        this.servicioSupermercado = servicio;
         initComponents();
     }
 
+    public void setProductosToTable(List <NoPerecedero> productos) {
+        int i = 0;
+        for (NoPerecedero producto : productos) {
+            tableListado.setValueAt(producto.getCodigo(), i, 0);
+            tableListado.setValueAt(producto.getNombre(), i, 1);
+            tableListado.setValueAt(producto.getPrecio(), i, 2);
+            tableListado.setValueAt(producto.getCantidad(), i, 3);
+            tableListado.setValueAt(producto.getCategoria(), i, 4);
+            tableListado.setValueAt(producto.getGarantia(), i, 5);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,13 +110,18 @@ public class GUIListarNoPerecedero extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblListar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollListado, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(scrollListado, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnListar.setBackground(new java.awt.Color(255, 153, 102));
         btnListar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnListar.setText("Listar");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,13 +141,18 @@ public class GUIListarNoPerecedero extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelListar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(127, 127, 127)
                 .addComponent(btnListar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+        List productosNoPerecederos = servicioSupermercado.listarNoPerecedero();
+        setProductosToTable(productosNoPerecederos);
+    }//GEN-LAST:event_btnListarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

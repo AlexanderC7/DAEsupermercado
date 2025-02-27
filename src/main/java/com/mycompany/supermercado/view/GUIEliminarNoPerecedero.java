@@ -4,16 +4,21 @@
  */
 package com.mycompany.supermercado.view;
 
+import com.mycompany.supermercado.servicios.ServicioSupermercado;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alexander
  */
 public class GUIEliminarNoPerecedero extends javax.swing.JFrame {
 
+    private ServicioSupermercado servicioSupermercado;
     /**
      * Creates new form GUIEliminarPerecedero
      */
-    public GUIEliminarNoPerecedero() {
+    public GUIEliminarNoPerecedero(ServicioSupermercado servicio) {
+        this.servicioSupermercado = servicio;
         initComponents();
     }
 
@@ -48,6 +53,11 @@ public class GUIEliminarNoPerecedero extends javax.swing.JFrame {
         btnEliminar.setBackground(new java.awt.Color(255, 102, 102));
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelEliminarLayout = new javax.swing.GroupLayout(panelEliminar);
         panelEliminar.setLayout(panelEliminarLayout);
@@ -98,6 +108,18 @@ public class GUIEliminarNoPerecedero extends javax.swing.JFrame {
     private void txtEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEliminarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        String nombre;
+        
+        nombre = txtEliminar.getText();
+        
+        if (nombre != null) {
+            servicioSupermercado.eliminarNoPerecedero(nombre);
+            JOptionPane.showMessageDialog(this, "Producto eliminado con éxito.");
+        }
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

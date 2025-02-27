@@ -4,16 +4,21 @@
  */
 package com.mycompany.supermercado.view;
 
+import com.mycompany.supermercado.servicios.ServicioSupermercado;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Alexander
  */
 public class GUIBuscarNoPerecedero extends javax.swing.JFrame {
 
+    private ServicioSupermercado servicioSupermercado;
     /**
      * Creates new form GUIBuscarNoPerecedero
      */
-    public GUIBuscarNoPerecedero() {
+    public GUIBuscarNoPerecedero(ServicioSupermercado servicio) {
+        this.servicioSupermercado = servicio;
         initComponents();
     }
 
@@ -151,7 +156,21 @@ public class GUIBuscarNoPerecedero extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBusquedaActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        listResultados.setModel(new DefaultListModel<>());
+        DefaultListModel<String> model = (DefaultListModel<String>) listResultados.getModel();
+        String nombre;
+        String resultado;
+        
+        nombre = txtBusqueda.getText();
+        
+        if (nombre != null) {
+            resultado = servicioSupermercado.buscarNoPerecedero(nombre);
+            
+            if (resultado != null) {
+                model.addElement(resultado);
+            }
+            
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     

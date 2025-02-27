@@ -4,6 +4,7 @@
  */
 package com.mycompany.supermercado.view;
 
+import com.mycompany.supermercado.servicios.ServicioSupermercado;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
@@ -15,10 +16,12 @@ import javax.swing.ImageIcon;
  */
 public class GUIPrincipal extends javax.swing.JFrame {
 
+    private ServicioSupermercado servicioSupermercado;
     /**
      * Creates new form GUIPrincipal
      */
     public GUIPrincipal() {
+        this.servicioSupermercado = new ServicioSupermercado();
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -125,6 +128,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         itemPerecederoListar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         itemPerecederoListar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_listar.png")));
         itemPerecederoListar.setText("Listar productos");
+        itemPerecederoListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemPerecederoListarActionPerformed(evt);
+            }
+        });
         menuPerecedero.add(itemPerecederoListar);
 
         menuBarPrincipal.add(menuPerecedero);
@@ -137,6 +145,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         itemNoPerecederoAdicionar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_agregar.png")));
         itemNoPerecederoAdicionar.setText("Adicionar producto");
         itemNoPerecederoAdicionar.setMargin(new java.awt.Insets(6, 6, 6, 6));
+        itemNoPerecederoAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemNoPerecederoAdicionarActionPerformed(evt);
+            }
+        });
         menuNoPerecedero.add(itemNoPerecederoAdicionar);
 
         itemNoPerecederoBuscar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -169,6 +182,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         itemNoPerecederoListar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         itemNoPerecederoListar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_listar.png")));
         itemNoPerecederoListar.setText("Listar productos");
+        itemNoPerecederoListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemNoPerecederoListarActionPerformed(evt);
+            }
+        });
         menuNoPerecedero.add(itemNoPerecederoListar);
 
         menuBarPrincipal.add(menuNoPerecedero);
@@ -227,9 +245,24 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itemNoPerecederoEliminarActionPerformed
 
     private void itemPerecederoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPerecederoAdicionarActionPerformed
-        GUIAdicionarNoPerecedero guiNoPerecedero = new GUIAdicionarNoPerecedero();
-        guiNoPerecedero.setVisible(true);
+        GUIAdicionarPerecedero guiPerecedero = new GUIAdicionarPerecedero(servicioSupermercado);
+        guiPerecedero.setVisible(true);
     }//GEN-LAST:event_itemPerecederoAdicionarActionPerformed
+
+    private void itemNoPerecederoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNoPerecederoAdicionarActionPerformed
+        GUIAdicionarNoPerecedero guiNoPerecedero = new GUIAdicionarNoPerecedero(servicioSupermercado);
+        guiNoPerecedero.setVisible(true);
+    }//GEN-LAST:event_itemNoPerecederoAdicionarActionPerformed
+
+    private void itemPerecederoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPerecederoListarActionPerformed
+        GUIListarPerecedero gUIListarPerecedero = new GUIListarPerecedero(servicioSupermercado);
+        gUIListarPerecedero.setVisible(true);
+    }//GEN-LAST:event_itemPerecederoListarActionPerformed
+
+    private void itemNoPerecederoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNoPerecederoListarActionPerformed
+        GUIListarNoPerecedero gUIListarNoPerecedero = new GUIListarNoPerecedero(servicioSupermercado);
+        gUIListarNoPerecedero.setVisible(true);
+    }//GEN-LAST:event_itemNoPerecederoListarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itemArchivoSalir;

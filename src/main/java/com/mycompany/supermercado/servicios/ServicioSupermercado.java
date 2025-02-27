@@ -11,7 +11,6 @@ import com.mycompany.supermercado.model.Producto;
 import com.mycompany.supermercado.view.GUIAdicionarNoPerecedero;
 import com.mycompany.supermercado.view.GUIAdicionarPerecedero;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,8 +34,7 @@ public class ServicioSupermercado implements IServicioSupermercado{
         try {
             noPerecedero = new NoPerecedero(nombre, codigo, precio, cantidad, categoria, garantia);
         } catch (ProductoException e) {
-            GUIAdicionarNoPerecedero guiNoPerecedero = new GUIAdicionarNoPerecedero();
-            guiNoPerecedero.mostrarMensajeError(e.getMessage());
+            System.out.println("[Error]: " + e.getMessage());
             return null;
         }
         return noPerecedero;
@@ -48,8 +46,7 @@ public class ServicioSupermercado implements IServicioSupermercado{
         try {
             perecedero = new Perecedero(nombre, codigo, precio, cantidad, caducidad, pesoUnidad);
         } catch (ProductoException e) {
-            GUIAdicionarPerecedero guiPerecedero = new GUIAdicionarPerecedero();
-            guiPerecedero.mostrarMensajeError(e.getMessage());
+            System.out.println("[Error]: " + e.getMessage());
             return null;
         }
         return perecedero;

@@ -6,7 +6,6 @@ package com.mycompany.supermercado.view;
 
 import com.mycompany.supermercado.model.Producto;
 import com.mycompany.supermercado.servicios.ServicioSupermercado;
-import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,7 +18,8 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
     /**
      * Creates new form GUIAdicionarNoPerecedero
      */
-    public GUIAdicionarPerecedero() {
+    public GUIAdicionarPerecedero(ServicioSupermercado servicio) {
+        this.servicioSupermercado = servicio;
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -37,7 +37,7 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnCrearNoPerecedero = new javax.swing.JButton();
+        btnCrearPerecedero = new javax.swing.JButton();
         scrollPanelCrear = new javax.swing.JScrollPane();
         panelCrear = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
@@ -57,13 +57,13 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
         setTitle("Adicionar Producto Perecedero");
         setResizable(false);
 
-        btnCrearNoPerecedero.setBackground(new java.awt.Color(255, 153, 102));
-        btnCrearNoPerecedero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnCrearNoPerecedero.setText("Crear");
-        btnCrearNoPerecedero.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnCrearNoPerecedero.addActionListener(new java.awt.event.ActionListener() {
+        btnCrearPerecedero.setBackground(new java.awt.Color(255, 153, 102));
+        btnCrearPerecedero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnCrearPerecedero.setText("Crear");
+        btnCrearPerecedero.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnCrearPerecedero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearNoPerecederoActionPerformed(evt);
+                btnCrearPerecederoActionPerformed(evt);
             }
         });
 
@@ -92,8 +92,13 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
         lblPrecio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPrecio.setText("Precio unidad");
 
-        ftxtPrecio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("¤#,##0"))));
+        ftxtPrecio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
         ftxtPrecio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ftxtPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ftxtPrecioActionPerformed(evt);
+            }
+        });
 
         lblCantidad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCantidad.setText("Cantidad");
@@ -174,7 +179,7 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(scrollPanelCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                    .addComponent(btnCrearNoPerecedero, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE))
+                    .addComponent(btnCrearPerecedero, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -183,14 +188,14 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(scrollPanelCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(btnCrearNoPerecedero)
+                .addComponent(btnCrearPerecedero)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCrearNoPerecederoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearNoPerecederoActionPerformed
+    private void btnCrearPerecederoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPerecederoActionPerformed
         Producto producto;
         String  nombre;
         int     codigo;
@@ -201,25 +206,30 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
         
         nombre = txtNombre.getText();
         codigo = Integer.parseInt(ftxtCodigo.getText());
-        precio = Double.parseDouble(ftxtPrecio.getText());
+        precio = Double.parseDouble(ftxtPrecio.getText().replace(",", "."));
         cantidad = Integer.parseInt(ftxtCantidad.getText());
         caducidad = ftxtCaducidad.getText();
-        peso = Double.parseDouble(ftxtPeso.getText());
+        peso = Double.parseDouble(ftxtPeso.getText().replace(",", "."));
         
         producto = servicioSupermercado.adicionarPerecedero(nombre, codigo, precio, cantidad, caducidad, peso);
         
         if (producto != null) {
             servicioSupermercado.adicionarProductos(producto);
+            JOptionPane.showMessageDialog(this, "Producto creado con éxito");
         }
-    }//GEN-LAST:event_btnCrearNoPerecederoActionPerformed
+    }//GEN-LAST:event_btnCrearPerecederoActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
 
+    private void ftxtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftxtPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ftxtPrecioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrearNoPerecedero;
+    private javax.swing.JButton btnCrearPerecedero;
     private javax.swing.JFormattedTextField ftxtCaducidad;
     private javax.swing.JFormattedTextField ftxtCantidad;
     private javax.swing.JFormattedTextField ftxtCodigo;

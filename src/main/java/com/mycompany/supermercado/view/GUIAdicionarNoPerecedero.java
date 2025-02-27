@@ -4,7 +4,6 @@
  */
 package com.mycompany.supermercado.view;
 
-import com.mycompany.supermercado.model.Perecedero;
 import com.mycompany.supermercado.model.Producto;
 import com.mycompany.supermercado.servicios.ServicioSupermercado;
 import javax.swing.JOptionPane;
@@ -20,7 +19,8 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
     /**
      * Creates new form GUIAdicionarNoPerecedero
      */
-    public GUIAdicionarNoPerecedero() {
+    public GUIAdicionarNoPerecedero(ServicioSupermercado servicio) {
+        this.servicioSupermercado = servicio;
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -94,7 +94,7 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         lblPrecio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPrecio.setText("Precio unidad");
 
-        ftxtPrecio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        ftxtPrecio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.0"))));
         ftxtPrecio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         lblCantidad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -209,7 +209,7 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         
         nombre = txtNombre.getText();
         codigo = Integer.parseInt(ftxtCodigo.getText());
-        precio = Double.parseDouble(ftxtPrecio.getText());
+        precio = Double.parseDouble(ftxtPrecio.getText().replace(",", "."));
         cantidad = Integer.parseInt(ftxtCantidad.getText());
         categoria = (String) cmbCategoria.getSelectedItem();
         garantia = chkGarantia.isSelected();
@@ -218,6 +218,7 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         
         if (producto != null) {
             servicioSupermercado.adicionarProductos(producto);
+            JOptionPane.showMessageDialog(this, "Producto creado con éxito");
         }
     }//GEN-LAST:event_btnCrearNoPerecederoActionPerformed
 
