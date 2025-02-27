@@ -218,7 +218,13 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         
         if (producto != null) {
             servicioSupermercado.adicionarProductos(producto);
+            txtNombre.setText(null);
+            ftxtCodigo.setText(null);
+            ftxtCantidad.setText(null);
+            ftxtPrecio.setText(null);
+            chkGarantia.setSelected(false);
             JOptionPane.showMessageDialog(this, "Producto creado con éxito");
+            
         }
     }//GEN-LAST:event_btnCrearNoPerecederoActionPerformed
 

@@ -32,6 +32,7 @@ public class GUIListarPerecedero extends javax.swing.JFrame {
             tableListado.setValueAt(producto.getCantidad(), i, 3);
             tableListado.setValueAt(producto.getCaducidad(), i, 4);
             tableListado.setValueAt(producto.getPesoUnidad(), i, 5);
+            i++;
         }
     }
     /**

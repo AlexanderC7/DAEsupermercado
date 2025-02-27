@@ -215,6 +215,12 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
         
         if (producto != null) {
             servicioSupermercado.adicionarProductos(producto);
+            txtNombre.setText(null);
+            ftxtCodigo.setText(null);
+            ftxtCantidad.setText(null);
+            ftxtPrecio.setText(null);
+            ftxtCaducidad.setText(null);
+            ftxtPeso.setText(null);
             JOptionPane.showMessageDialog(this, "Producto creado con éxito");
         }
     }//GEN-LAST:event_btnCrearPerecederoActionPerformed

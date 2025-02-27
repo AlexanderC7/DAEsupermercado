@@ -33,6 +33,7 @@ public class GUIListarNoPerecedero extends javax.swing.JFrame {
             tableListado.setValueAt(producto.getCantidad(), i, 3);
             tableListado.setValueAt(producto.getCategoria(), i, 4);
             tableListado.setValueAt(producto.getGarantia(), i, 5);
+            i++;
         }
     }
     /**
