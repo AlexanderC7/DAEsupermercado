@@ -6,11 +6,11 @@ package com.mycompany.supermercado.exceptions;
 
 /**
  *
- * @author Jorge Alejandro V
+ * @author Alexander
  */
-public class ProductoException extends Exception{
+public class ServicioException extends Exception{
 
-    public ProductoException(String message) {
+    public ServicioException(String message) {
         super(message);
     }
     

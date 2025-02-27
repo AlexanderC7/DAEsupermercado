@@ -100,7 +100,7 @@
                               <Component id="ftxtPrecio" alignment="0" max="32767" attributes="0"/>
                               <Component id="lblCantidad" min="-2" max="-2" attributes="0"/>
                               <Component id="ftxtCantidad" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cmbCategoria" alignment="0" max="32767" attributes="0"/>
                               <Component id="lblGarantia" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -130,7 +130,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="lblCategoria" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbCategoria" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="lblGarantia" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -189,7 +189,7 @@
             <Component class="javax.swing.JFormattedTextField" name="ftxtPrecio">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                  <Format format="&#xa4;#,##0" subtype="-1" type="4"/>
+                  <Format format="#0.00" subtype="-1" type="0"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -222,7 +222,7 @@
                 <Property name="text" type="java.lang.String" value="Categor&#xed;a"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="cmbCategoria">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>

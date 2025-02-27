@@ -4,9 +4,12 @@
  */
 package com.mycompany.supermercado.servicios;
 
+import com.mycompany.supermercado.exceptions.ProductoException;
 import com.mycompany.supermercado.model.NoPerecedero;
 import com.mycompany.supermercado.model.Perecedero;
 import com.mycompany.supermercado.model.Producto;
+import com.mycompany.supermercado.view.GUIAdicionarNoPerecedero;
+import com.mycompany.supermercado.view.GUIAdicionarPerecedero;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,18 +34,22 @@ public class ServicioSupermercado implements IServicioSupermercado{
         Producto noPerecedero;
         try {
             noPerecedero = new NoPerecedero(nombre, codigo, precio, cantidad, categoria, garantia);
-        } catch (Exception e) {
+        } catch (ProductoException e) {
+            GUIAdicionarNoPerecedero guiNoPerecedero = new GUIAdicionarNoPerecedero();
+            guiNoPerecedero.mostrarMensajeError(e.getMessage());
             return null;
         }
         return noPerecedero;
     }
 
     @Override
-    public Producto adicionarPerecedero(String nombre, int codigo, double precio, int cantidad, Date caducidad, double pesoUnidad) {
+    public Producto adicionarPerecedero(String nombre, int codigo, double precio, int cantidad, String caducidad, double pesoUnidad) {
         Producto perecedero;
         try {
             perecedero = new Perecedero(nombre, codigo, precio, cantidad, caducidad, pesoUnidad);
-        } catch (Exception e) {
+        } catch (ProductoException e) {
+            GUIAdicionarPerecedero guiPerecedero = new GUIAdicionarPerecedero();
+            guiPerecedero.mostrarMensajeError(e.getMessage());
             return null;
         }
         return perecedero;

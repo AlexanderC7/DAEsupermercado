@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface IServicioSupermercado {
     public void adicionarProductos(Producto pro);
-    public Producto adicionarPerecedero(String nombre, int codigo, double precio, int cantidad, Date caducidad, double pesoUnidad);
+    public Producto adicionarPerecedero(String nombre, int codigo, double precio, int cantidad, String caducidad, double pesoUnidad);
     public Producto adicionarNoPerecedero(String nombre, int codigo, double precio, int cantidad, String categoria, boolean garantia);
     public String buscarPerecedero(String nombre);
     public String buscarNoPerecedero(String nombre);

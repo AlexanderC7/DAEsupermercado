@@ -4,12 +4,18 @@
  */
 package com.mycompany.supermercado.view;
 
+import com.mycompany.supermercado.model.Producto;
+import com.mycompany.supermercado.servicios.ServicioSupermercado;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alexander
  */
 public class GUIAdicionarPerecedero extends javax.swing.JFrame {
 
+    private ServicioSupermercado servicioSupermercado;
     /**
      * Creates new form GUIAdicionarNoPerecedero
      */
@@ -18,6 +24,10 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
+    public void mostrarMensajeError(String errorMessage){
+        JOptionPane.showMessageDialog(this, errorMessage, "Error al crear", JOptionPane.ERROR_MESSAGE);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -181,7 +191,26 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearNoPerecederoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearNoPerecederoActionPerformed
-        // TODO add your handling code here:
+        Producto producto;
+        String  nombre;
+        int     codigo;
+        double  precio;
+        int     cantidad;
+        String  caducidad;
+        double  peso;
+        
+        nombre = txtNombre.getText();
+        codigo = Integer.parseInt(ftxtCodigo.getText());
+        precio = Double.parseDouble(ftxtPrecio.getText());
+        cantidad = Integer.parseInt(ftxtCantidad.getText());
+        caducidad = ftxtCaducidad.getText();
+        peso = Double.parseDouble(ftxtPeso.getText());
+        
+        producto = servicioSupermercado.adicionarPerecedero(nombre, codigo, precio, cantidad, caducidad, peso);
+        
+        if (producto != null) {
+            servicioSupermercado.adicionarProductos(producto);
+        }
     }//GEN-LAST:event_btnCrearNoPerecederoActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed

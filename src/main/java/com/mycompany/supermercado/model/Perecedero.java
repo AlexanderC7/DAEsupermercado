@@ -13,10 +13,10 @@ import java.util.Date;
  */
 public class Perecedero extends Producto{
     
-    private Date caducidad;
+    private String caducidad;
     private double pesoUnidad;
     
-    public Perecedero(String nombre, int codigo, double precio, int cantidad, Date caducidad, double pesoUnidad) throws ProductoException {
+    public Perecedero(String nombre, int codigo, double precio, int cantidad, String caducidad, double pesoUnidad) throws ProductoException {
         super(nombre, codigo, precio, cantidad);
         setCaducidad(caducidad);
         setPesoUnidad(pesoUnidad);
@@ -62,11 +62,11 @@ public class Perecedero extends Producto{
         return super.getNombre(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
 
-    public Date getCaducidad() {
+    public String getCaducidad() {
         return caducidad;
     }
 
-    public void setCaducidad(Date caducidad) throws ProductoException {
+    public void setCaducidad(String caducidad) throws ProductoException {
         if (caducidad == null) {
             throw new ProductoException("error asignando fecha de caducidad");
             

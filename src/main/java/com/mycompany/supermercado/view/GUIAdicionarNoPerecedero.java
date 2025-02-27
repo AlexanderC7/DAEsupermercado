@@ -4,12 +4,19 @@
  */
 package com.mycompany.supermercado.view;
 
+import com.mycompany.supermercado.model.Perecedero;
+import com.mycompany.supermercado.model.Producto;
+import com.mycompany.supermercado.servicios.ServicioSupermercado;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alexander
  */
 public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
 
+    private ServicioSupermercado servicioSupermercado;
+    
     /**
      * Creates new form GUIAdicionarNoPerecedero
      */
@@ -18,6 +25,10 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
+    public void mostrarMensajeError(String errorMessage){
+        JOptionPane.showMessageDialog(this, errorMessage, "Error al crear", JOptionPane.ERROR_MESSAGE);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,7 +50,7 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         lblCantidad = new javax.swing.JLabel();
         ftxtCantidad = new javax.swing.JFormattedTextField();
         lblCategoria = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbCategoria = new javax.swing.JComboBox<>();
         lblGarantia = new javax.swing.JLabel();
         chkGarantia = new javax.swing.JCheckBox();
 
@@ -83,7 +94,7 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         lblPrecio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPrecio.setText("Precio unidad");
 
-        ftxtPrecio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("¤#,##0"))));
+        ftxtPrecio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
         ftxtPrecio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         lblCantidad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -95,8 +106,8 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         lblCategoria.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCategoria.setText("Categoría");
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alimentos No Perecederos", "Artículos de Cocina", "Baterías y Pilas", "Herramientas y Ferretería", "Hogar y Decoración", "Papel y Desechables", "Productos de Aseo Personal", "Productos de Limpieza", "Productos para Mascotas", "Útiles de Oficina y Escolar" }));
+        cmbCategoria.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cmbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alimentos No Perecederos", "Artículos de Cocina", "Baterías y Pilas", "Herramientas y Ferretería", "Hogar y Decoración", "Papel y Desechables", "Productos de Aseo Personal", "Productos de Limpieza", "Productos para Mascotas", "Útiles de Oficina y Escolar" }));
 
         lblGarantia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblGarantia.setText("Garantía");
@@ -127,7 +138,7 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
                         .addComponent(ftxtPrecio)
                         .addComponent(lblCantidad)
                         .addComponent(ftxtCantidad)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cmbCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblGarantia)))
                 .addContainerGap(165, Short.MAX_VALUE))
         );
@@ -153,7 +164,7 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblCategoria)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblGarantia)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -188,7 +199,26 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearNoPerecederoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearNoPerecederoActionPerformed
-        // TODO add your handling code here:
+        Producto producto;
+        String  nombre;
+        int     codigo;
+        double  precio;
+        int     cantidad;
+        String  categoria;
+        boolean garantia;
+        
+        nombre = txtNombre.getText();
+        codigo = Integer.parseInt(ftxtCodigo.getText());
+        precio = Double.parseDouble(ftxtPrecio.getText());
+        cantidad = Integer.parseInt(ftxtCantidad.getText());
+        categoria = (String) cmbCategoria.getSelectedItem();
+        garantia = chkGarantia.isSelected();
+        
+        producto = servicioSupermercado.adicionarNoPerecedero(nombre, codigo, precio, cantidad, categoria, garantia);
+        
+        if (producto != null) {
+            servicioSupermercado.adicionarProductos(producto);
+        }
     }//GEN-LAST:event_btnCrearNoPerecederoActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
@@ -203,10 +233,10 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearNoPerecedero;
     private javax.swing.JCheckBox chkGarantia;
+    private javax.swing.JComboBox<String> cmbCategoria;
     private javax.swing.JFormattedTextField ftxtCantidad;
     private javax.swing.JFormattedTextField ftxtCodigo;
     private javax.swing.JFormattedTextField ftxtPrecio;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblCategoria;
     private javax.swing.JLabel lblCodigo;
