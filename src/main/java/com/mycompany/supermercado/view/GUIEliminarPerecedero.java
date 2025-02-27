@@ -38,7 +38,7 @@ public class GUIEliminarPerecedero extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Eliminar Producto Perecedero");
-        setPreferredSize(new java.awt.Dimension(400, 140));
+        setPreferredSize(new java.awt.Dimension(400, 220));
         setResizable(false);
 
         lblEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
