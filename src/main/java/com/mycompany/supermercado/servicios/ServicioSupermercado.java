@@ -105,7 +105,7 @@ public class ServicioSupermercado implements IServicioSupermercado{
     public void eliminarNoPerecedero(String nombre) {
         for (Producto producto : productos) {
             if (producto.getNombre().equalsIgnoreCase(nombre)) {
-                productos.remove(this);
+                productos.remove(producto);
             }
         }
     }
