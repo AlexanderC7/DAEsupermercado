@@ -8,12 +8,12 @@ package com.mycompany.supermercado.view;
  *
  * @author Alexander
  */
-public class GUIBuscarNoPerecedero extends javax.swing.JFrame {
+public class GUIBuscarPerecedero extends javax.swing.JFrame {
 
     /**
      * Creates new form GUIBuscarNoPerecedero
      */
-    public GUIBuscarNoPerecedero() {
+    public GUIBuscarPerecedero() {
         initComponents();
     }
 
@@ -36,7 +36,7 @@ public class GUIBuscarNoPerecedero extends javax.swing.JFrame {
         tableResultados = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Buscar producto no perecedero");
+        setTitle("Buscar producto perecedero");
         setResizable(false);
 
         lblBusqueda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -99,7 +99,7 @@ public class GUIBuscarNoPerecedero extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Código", "Nombre", "Cantidad", "Categoría"
+                "Código", "Nombre", "Cantidad", "Caducidad"
             }
         ));
         scrollPane.setViewportView(tableResultados);
