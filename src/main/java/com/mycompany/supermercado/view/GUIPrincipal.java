@@ -103,6 +103,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         itemPerecederoBuscar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_buscar.png")));
         itemPerecederoBuscar.setText("Buscar producto");
         itemPerecederoBuscar.setMargin(new java.awt.Insets(6, 6, 6, 6));
+        itemPerecederoBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemPerecederoBuscarActionPerformed(evt);
+            }
+        });
         menuPerecedero.add(itemPerecederoBuscar);
 
         itemPerecederoCalcular.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -110,6 +115,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         itemPerecederoCalcular.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_calcular.png")));
         itemPerecederoCalcular.setText("Calcular producto");
         itemPerecederoCalcular.setMargin(new java.awt.Insets(6, 6, 6, 6));
+        itemPerecederoCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemPerecederoCalcularActionPerformed(evt);
+            }
+        });
         menuPerecedero.add(itemPerecederoCalcular);
 
         itemPerecederoEliminar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -157,6 +167,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         itemNoPerecederoBuscar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_buscar.png")));
         itemNoPerecederoBuscar.setText("Buscar producto");
         itemNoPerecederoBuscar.setMargin(new java.awt.Insets(6, 6, 6, 6));
+        itemNoPerecederoBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemNoPerecederoBuscarActionPerformed(evt);
+            }
+        });
         menuNoPerecedero.add(itemNoPerecederoBuscar);
 
         itemNoPerecederoCalcular.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -237,11 +252,13 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itemAyudaAcercaActionPerformed
 
     private void itemPerecederoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPerecederoEliminarActionPerformed
-        // TODO add your handling code here:
+        GUIEliminarPerecedero gUIEliminarPerecedero = new GUIEliminarPerecedero(servicioSupermercado);
+        gUIEliminarPerecedero.setVisible(true);
     }//GEN-LAST:event_itemPerecederoEliminarActionPerformed
 
     private void itemNoPerecederoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNoPerecederoEliminarActionPerformed
-        // TODO add your handling code here:
+        GUIEliminarNoPerecedero gUIEliminarNoPerecedero = new GUIEliminarNoPerecedero(servicioSupermercado);
+        gUIEliminarNoPerecedero.setVisible(true);
     }//GEN-LAST:event_itemNoPerecederoEliminarActionPerformed
 
     private void itemPerecederoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPerecederoAdicionarActionPerformed
@@ -263,6 +280,21 @@ public class GUIPrincipal extends javax.swing.JFrame {
         GUIListarNoPerecedero gUIListarNoPerecedero = new GUIListarNoPerecedero(servicioSupermercado);
         gUIListarNoPerecedero.setVisible(true);
     }//GEN-LAST:event_itemNoPerecederoListarActionPerformed
+
+    private void itemPerecederoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPerecederoBuscarActionPerformed
+        GUIBuscarPerecedero gUIBuscarPerecedero = new GUIBuscarPerecedero(servicioSupermercado);
+        gUIBuscarPerecedero.setVisible(true);
+        
+    }//GEN-LAST:event_itemPerecederoBuscarActionPerformed
+
+    private void itemPerecederoCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPerecederoCalcularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemPerecederoCalcularActionPerformed
+
+    private void itemNoPerecederoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNoPerecederoBuscarActionPerformed
+        GUIBuscarNoPerecedero gUIBuscarNoPerecedero = new GUIBuscarNoPerecedero(servicioSupermercado);
+        gUIBuscarNoPerecedero.setVisible(true);
+    }//GEN-LAST:event_itemNoPerecederoBuscarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itemArchivoSalir;
