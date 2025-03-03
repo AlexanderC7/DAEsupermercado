@@ -108,7 +108,7 @@ public class ServicioSupermercado implements IServicioSupermercado{
             }
         }
         
-        if (productoEncontrado) {
+        if (!productoEncontrado) {
             throw new ServicioException("Producto no encontrado");
         }
     }
@@ -129,7 +129,7 @@ public class ServicioSupermercado implements IServicioSupermercado{
             }
         }
         
-        if (productoEncontrado) {
+        if (!productoEncontrado) {
             throw new ServicioException("Producto no encontrado");
         }
     }
