@@ -4,6 +4,7 @@
  */
 package com.mycompany.supermercado.view;
 
+import com.mycompany.supermercado.exceptions.ServicioException;
 import com.mycompany.supermercado.servicios.ServicioSupermercado;
 import javax.swing.JOptionPane;
 
@@ -20,6 +21,8 @@ public class GUIEliminarPerecedero extends javax.swing.JFrame {
     public GUIEliminarPerecedero(ServicioSupermercado servicio) {
         this.servicioSupermercado = servicio;
         initComponents();
+        setLocationRelativeTo(null);
+        lblEstadoConsulta.setText(null);
     }
 
     /**
@@ -35,14 +38,15 @@ public class GUIEliminarPerecedero extends javax.swing.JFrame {
         lblEliminar = new javax.swing.JLabel();
         txtEliminar = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
+        lblEstadoConsulta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Eliminar Producto Perecedero");
-        setPreferredSize(new java.awt.Dimension(400, 220));
+        setPreferredSize(new java.awt.Dimension(400, 360));
         setResizable(false);
 
         lblEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblEliminar.setText("Eliminar producto por  nombre");
+        lblEliminar.setText("Eliminar producto PERECEDERO por  nombre");
 
         txtEliminar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -60,6 +64,10 @@ public class GUIEliminarPerecedero extends javax.swing.JFrame {
             }
         });
 
+        lblEstadoConsulta.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblEstadoConsulta.setForeground(new java.awt.Color(204, 0, 0));
+        lblEstadoConsulta.setText("Producto no encontrado");
+
         javax.swing.GroupLayout panelEliminarLayout = new javax.swing.GroupLayout(panelEliminar);
         panelEliminar.setLayout(panelEliminarLayout);
         panelEliminarLayout.setHorizontalGroup(
@@ -70,20 +78,26 @@ public class GUIEliminarPerecedero extends javax.swing.JFrame {
                     .addComponent(txtEliminar)
                     .addGroup(panelEliminarLayout.createSequentialGroup()
                         .addComponent(lblEliminar)
-                        .addGap(0, 166, Short.MAX_VALUE))
+                        .addGap(0, 72, Short.MAX_VALUE))
                     .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEliminarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblEstadoConsulta)
+                .addGap(128, 128, 128))
         );
         panelEliminarLayout.setVerticalGroup(
             panelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEliminarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblEliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(104, 104, 104)
                 .addComponent(txtEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblEstadoConsulta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addComponent(btnEliminar)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,8 +113,8 @@ public class GUIEliminarPerecedero extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -115,9 +129,14 @@ public class GUIEliminarPerecedero extends javax.swing.JFrame {
         
         nombre = txtEliminar.getText();
         
-        if (nombre != null) {
-            servicioSupermercado.eliminarPerecedero(nombre);
-            JOptionPane.showMessageDialog(this, "Producto eliminado con éxito.");
+        if (!txtEliminar.getText().isBlank()) {
+            try {
+                servicioSupermercado.eliminarNoPerecedero(nombre);
+                txtEliminar.setText(null);
+                JOptionPane.showMessageDialog(this, "Producto eliminado con éxito.");
+            } catch (ServicioException ex) {
+                lblEstadoConsulta.setText(ex.getMessage());
+            }
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -125,6 +144,7 @@ public class GUIEliminarPerecedero extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel lblEliminar;
+    private javax.swing.JLabel lblEstadoConsulta;
     private javax.swing.JPanel panelEliminar;
     private javax.swing.JTextField txtEliminar;
     // End of variables declaration//GEN-END:variables

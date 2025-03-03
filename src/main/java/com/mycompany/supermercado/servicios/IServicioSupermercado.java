@@ -4,6 +4,7 @@
  */
 package com.mycompany.supermercado.servicios;
 
+import com.mycompany.supermercado.exceptions.ServicioException;
 import com.mycompany.supermercado.model.Producto;
 import java.util.Date;
 import java.util.List;
@@ -22,8 +23,8 @@ public interface IServicioSupermercado {
     public void calcularNoPerecedero(int codigo);
     public List <Producto> listarPerecedero();
     public List <Producto> listarNoPerecedero();
-    public void eliminarPerecedero(String nombre);
-    public void eliminarNoPerecedero(String nombre);
+    public void eliminarPerecedero(String nombre) throws ServicioException;
+    public void eliminarNoPerecedero(String nombre) throws ServicioException;
     
     
 }

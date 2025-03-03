@@ -5,12 +5,12 @@
 package com.mycompany.supermercado.servicios;
 
 import com.mycompany.supermercado.exceptions.ProductoException;
+import com.mycompany.supermercado.exceptions.ServicioException;
 import com.mycompany.supermercado.model.NoPerecedero;
 import com.mycompany.supermercado.model.Perecedero;
 import com.mycompany.supermercado.model.Producto;
-import com.mycompany.supermercado.view.GUIAdicionarNoPerecedero;
-import com.mycompany.supermercado.view.GUIAdicionarPerecedero;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -93,22 +93,47 @@ public class ServicioSupermercado implements IServicioSupermercado{
     }
 
     @Override
-    public void eliminarPerecedero(String nombre) {
-        for (Producto producto : productos) {
+    public void eliminarPerecedero(String nombre) throws ServicioException {
+        Iterator<Producto> iterator = productos.iterator();
+        boolean productoEncontrado = false;
+        
+        while (iterator.hasNext()) {
+            Producto producto = iterator.next();
             if (producto.getNombre().equalsIgnoreCase(nombre)) {
-                productos.remove(producto);
+                if (producto instanceof Perecedero) {
+                    iterator.remove();
+                    productoEncontrado = true;
+                    return;
+                }
             }
+        }
+        
+        if (productoEncontrado) {
+            throw new ServicioException("Producto no encontrado");
         }
     }
 
     @Override
-    public void eliminarNoPerecedero(String nombre) {
-        for (Producto producto : productos) {
+    public void eliminarNoPerecedero(String nombre) throws ServicioException {
+        Iterator<Producto> iterator = productos.iterator();
+        boolean productoEncontrado = false;
+        
+        while (iterator.hasNext()) {
+            Producto producto = iterator.next();
             if (producto.getNombre().equalsIgnoreCase(nombre)) {
-                productos.remove(producto);
+                if (producto instanceof NoPerecedero) {
+                    iterator.remove();
+                    productoEncontrado = true;
+                    return;
+                }
             }
         }
+        
+        if (productoEncontrado) {
+            throw new ServicioException("Producto no encontrado");
+        }
     }
+
 
     
 
