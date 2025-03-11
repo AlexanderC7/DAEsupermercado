@@ -8,8 +8,8 @@ import com.mycompany.supermercado.exceptions.ProductoException;
 import com.mycompany.supermercado.exceptions.ServicioException;
 import com.mycompany.supermercado.model.NoPerecedero;
 import com.mycompany.supermercado.model.Perecedero;
-import com.mycompany.supermercado.model.Producto;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -36,7 +36,7 @@ public class ServicioSupermercado implements IServicioSupermercado{
     }
 
     @Override
-    public Perecedero adicionarPerecedero(String nombre, int codigo, double precio, int cantidad, String caducidad, double pesoUnidad) {
+    public Perecedero adicionarPerecedero(String nombre, int codigo, double precio, int cantidad, Date caducidad, double pesoUnidad) {
         Perecedero perecedero;
         try {
             perecedero = new Perecedero(nombre, codigo, precio, cantidad, caducidad, pesoUnidad);

@@ -6,8 +6,6 @@ package com.mycompany.supermercado.view;
 
 import com.mycompany.supermercado.exceptions.ServicioException;
 import com.mycompany.supermercado.servicios.ServicioSupermercado;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -51,6 +49,7 @@ public class GUIEliminarNoPerecedero extends javax.swing.JFrame {
         lblEliminar.setText("Eliminar producto NO PERECEDERO por  nombre");
 
         txtEliminar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEliminar.setToolTipText("Ingrese nombre del producto");
         txtEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEliminarActionPerformed(evt);

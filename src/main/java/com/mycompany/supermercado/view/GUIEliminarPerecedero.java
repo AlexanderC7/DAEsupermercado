@@ -49,6 +49,7 @@ public class GUIEliminarPerecedero extends javax.swing.JFrame {
         lblEliminar.setText("Eliminar producto PERECEDERO por  nombre");
 
         txtEliminar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEliminar.setToolTipText("Ingrese nombre del producto");
         txtEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEliminarActionPerformed(evt);
@@ -131,7 +132,7 @@ public class GUIEliminarPerecedero extends javax.swing.JFrame {
         
         if (!txtEliminar.getText().isBlank()) {
             try {
-                servicioSupermercado.eliminarNoPerecedero(nombre);
+                servicioSupermercado.eliminarPerecedero(nombre);
                 txtEliminar.setText(null);
                 JOptionPane.showMessageDialog(this, "Producto eliminado con éxito.");
             } catch (ServicioException ex) {

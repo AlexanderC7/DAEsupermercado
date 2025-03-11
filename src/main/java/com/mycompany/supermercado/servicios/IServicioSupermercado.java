@@ -7,6 +7,7 @@ package com.mycompany.supermercado.servicios;
 import com.mycompany.supermercado.exceptions.ServicioException;
 import com.mycompany.supermercado.model.NoPerecedero;
 import com.mycompany.supermercado.model.Perecedero;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ import java.util.List;
  * @author Jorge Alejandro V
  */
 public interface IServicioSupermercado {
-    public Perecedero adicionarPerecedero(String nombre, int codigo, double precio, int cantidad, String caducidad, double pesoUnidad);
+    public Perecedero adicionarPerecedero(String nombre, int codigo, double precio, int cantidad, Date caducidad, double pesoUnidad);
     public NoPerecedero adicionarNoPerecedero(String nombre, int codigo, double precio, int cantidad, String categoria, boolean garantia);
     public Perecedero buscarPerecedero(String nombre);
     public NoPerecedero buscarNoPerecedero(String nombre);

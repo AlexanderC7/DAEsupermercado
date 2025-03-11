@@ -6,6 +6,7 @@ package com.mycompany.supermercado.view;
 
 import com.mycompany.supermercado.model.Producto;
 import com.mycompany.supermercado.servicios.ServicioSupermercado;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -49,7 +50,7 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
         lblCantidad = new javax.swing.JLabel();
         ftxtCantidad = new javax.swing.JFormattedTextField();
         lblCaducidad = new javax.swing.JLabel();
-        ftxtCaducidad = new javax.swing.JFormattedTextField();
+        dateCaducidad = new com.toedter.calendar.JDateChooser();
         lblpeso = new javax.swing.JLabel();
         ftxtPeso = new javax.swing.JFormattedTextField();
 
@@ -109,8 +110,7 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
         lblCaducidad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCaducidad.setText("Caducidad");
 
-        ftxtCaducidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-        ftxtCaducidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateCaducidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         lblpeso.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblpeso.setText("Peso (Kg)");
@@ -125,7 +125,6 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
             .addGroup(panelCrearLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(panelCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ftxtCaducidad)
                     .addComponent(lblCaducidad)
                     .addComponent(lblNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
@@ -136,7 +135,8 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
                     .addComponent(lblCantidad)
                     .addComponent(ftxtCantidad)
                     .addComponent(lblpeso)
-                    .addComponent(ftxtPeso))
+                    .addComponent(ftxtPeso)
+                    .addComponent(dateCaducidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(165, Short.MAX_VALUE))
         );
         panelCrearLayout.setVerticalGroup(
@@ -161,8 +161,8 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblCaducidad)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ftxtCaducidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
+                .addComponent(dateCaducidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(lblpeso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ftxtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,14 +201,14 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
         int     codigo;
         double  precio;
         int     cantidad;
-        String  caducidad;
+        Date  caducidad;
         double  peso;
         
         nombre = txtNombre.getText();
         codigo = Integer.parseInt(ftxtCodigo.getText());
         precio = Double.parseDouble(ftxtPrecio.getText().replace(",", "."));
         cantidad = Integer.parseInt(ftxtCantidad.getText());
-        caducidad = ftxtCaducidad.getText();
+        caducidad = dateCaducidad.getDate();
         peso = Double.parseDouble(ftxtPeso.getText().replace(",", "."));
         
         producto = servicioSupermercado.adicionarPerecedero(nombre, codigo, precio, cantidad, caducidad, peso);
@@ -218,7 +218,7 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
             ftxtCodigo.setText(null);
             ftxtCantidad.setText(null);
             ftxtPrecio.setText(null);
-            ftxtCaducidad.setText(null);
+            dateCaducidad.setDate(null);
             ftxtPeso.setText(null);
             JOptionPane.showMessageDialog(this, "Producto creado con éxito");
         }
@@ -235,7 +235,7 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearPerecedero;
-    private javax.swing.JFormattedTextField ftxtCaducidad;
+    private com.toedter.calendar.JDateChooser dateCaducidad;
     private javax.swing.JFormattedTextField ftxtCantidad;
     private javax.swing.JFormattedTextField ftxtCodigo;
     private javax.swing.JFormattedTextField ftxtPeso;
