@@ -19,20 +19,15 @@ import java.util.List;
  */
 public class ServicioSupermercado implements IServicioSupermercado{
     
-    private static List<Producto> productos = new ArrayList();
+    private static List<NoPerecedero> productosNoPerecederos = new ArrayList();
+    private static List<Perecedero> productosPerecederos = new ArrayList();
 
     @Override
-    public void adicionarProductos(Producto pro) {
-        if (pro != null) {
-            productos.add(pro);
-        }
-    }
-
-    @Override
-    public Producto adicionarNoPerecedero(String nombre, int codigo, double precio, int cantidad, String categoria, boolean garantia) {
-        Producto noPerecedero;
+    public NoPerecedero adicionarNoPerecedero(String nombre, int codigo, double precio, int cantidad, String categoria, boolean garantia) {
+        NoPerecedero noPerecedero;
         try {
             noPerecedero = new NoPerecedero(nombre, codigo, precio, cantidad, categoria, garantia);
+            productosNoPerecederos.add(noPerecedero);
         } catch (ProductoException e) {
             System.out.println("[Error]: " + e.getMessage());
             return null;
@@ -41,10 +36,11 @@ public class ServicioSupermercado implements IServicioSupermercado{
     }
 
     @Override
-    public Producto adicionarPerecedero(String nombre, int codigo, double precio, int cantidad, String caducidad, double pesoUnidad) {
-        Producto perecedero;
+    public Perecedero adicionarPerecedero(String nombre, int codigo, double precio, int cantidad, String caducidad, double pesoUnidad) {
+        Perecedero perecedero;
         try {
             perecedero = new Perecedero(nombre, codigo, precio, cantidad, caducidad, pesoUnidad);
+            productosPerecederos.add(perecedero);
         } catch (ProductoException e) {
             System.out.println("[Error]: " + e.getMessage());
             return null;
@@ -53,20 +49,20 @@ public class ServicioSupermercado implements IServicioSupermercado{
     }
 
     @Override
-    public String buscarPerecedero(String nombre) {
-        for (Producto producto : productos) {
+    public Perecedero buscarPerecedero(String nombre) {
+        for (Perecedero producto : productosPerecederos) {
             if (producto.getNombre().equalsIgnoreCase(nombre)){
-                return producto.toString();
+                return producto;
             }
         }
         return null;
     }
 
     @Override
-    public String buscarNoPerecedero(String nombre) {
-        for (Producto producto : productos) {
+    public NoPerecedero buscarNoPerecedero(String nombre) {
+        for (NoPerecedero producto : productosNoPerecederos) {
             if (producto.getNombre().equalsIgnoreCase(nombre)){
-                return producto.toString();
+                return producto;
             }
         }
         return null;
@@ -83,22 +79,22 @@ public class ServicioSupermercado implements IServicioSupermercado{
     }
 
     @Override
-    public List <Producto> listarPerecedero() {
-        return productos;
+    public List <Perecedero> listarPerecedero() {
+        return productosPerecederos;
     }
 
     @Override
-    public List <Producto> listarNoPerecedero() {
-        return productos;
+    public List <NoPerecedero> listarNoPerecedero() {
+        return productosNoPerecederos;
     }
 
     @Override
     public void eliminarPerecedero(String nombre) throws ServicioException {
-        Iterator<Producto> iterator = productos.iterator();
+        Iterator<Perecedero> iterator = productosPerecederos.iterator();
         boolean productoEncontrado = false;
         
         while (iterator.hasNext()) {
-            Producto producto = iterator.next();
+            Perecedero producto = iterator.next();
             if (producto.getNombre().equalsIgnoreCase(nombre)) {
                 if (producto instanceof Perecedero) {
                     iterator.remove();
@@ -115,11 +111,11 @@ public class ServicioSupermercado implements IServicioSupermercado{
 
     @Override
     public void eliminarNoPerecedero(String nombre) throws ServicioException {
-        Iterator<Producto> iterator = productos.iterator();
+        Iterator<NoPerecedero> iterator = productosNoPerecederos.iterator();
         boolean productoEncontrado = false;
         
         while (iterator.hasNext()) {
-            Producto producto = iterator.next();
+            NoPerecedero producto = iterator.next();
             if (producto.getNombre().equalsIgnoreCase(nombre)) {
                 if (producto instanceof NoPerecedero) {
                     iterator.remove();

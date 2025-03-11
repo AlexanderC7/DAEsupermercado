@@ -214,7 +214,6 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
         producto = servicioSupermercado.adicionarPerecedero(nombre, codigo, precio, cantidad, caducidad, peso);
         
         if (producto != null) {
-            servicioSupermercado.adicionarProductos(producto);
             txtNombre.setText(null);
             ftxtCodigo.setText(null);
             ftxtCantidad.setText(null);

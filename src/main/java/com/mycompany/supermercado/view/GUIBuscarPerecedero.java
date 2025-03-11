@@ -4,8 +4,10 @@
  */
 package com.mycompany.supermercado.view;
 
+import com.mycompany.supermercado.model.Perecedero;
 import com.mycompany.supermercado.servicios.ServicioSupermercado;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,8 +39,19 @@ public class GUIBuscarPerecedero extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         panelResultados = new javax.swing.JPanel();
         lblResultados = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listResultados = new javax.swing.JList<>();
+        panelResultadoEncontrado = new javax.swing.JPanel();
+        lblNombre = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        lblCodigo = new javax.swing.JLabel();
+        ftxtCodigo = new javax.swing.JFormattedTextField();
+        lblPrecio = new javax.swing.JLabel();
+        ftxtPrecio = new javax.swing.JFormattedTextField();
+        lblCantidad = new javax.swing.JLabel();
+        ftxtCantidad = new javax.swing.JFormattedTextField();
+        lblCaducidad = new javax.swing.JLabel();
+        ftxtCaducidad = new javax.swing.JFormattedTextField();
+        lblPeso = new javax.swing.JLabel();
+        ftxtPeso = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Buscar producto perecedero");
@@ -95,12 +108,103 @@ public class GUIBuscarPerecedero extends javax.swing.JFrame {
         lblResultados.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblResultados.setText("Resultados :");
 
-        listResultados.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Sin resultados" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        panelResultadoEncontrado.setPreferredSize(new java.awt.Dimension(400, 600));
+
+        lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblNombre.setText("Nombre del producto");
+
+        txtNombre.setEditable(false);
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNombre.setToolTipText("Nombre del producto");
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
         });
-        jScrollPane1.setViewportView(listResultados);
+
+        lblCodigo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCodigo.setText("Código");
+
+        ftxtCodigo.setEditable(false);
+        ftxtCodigo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        ftxtCodigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        lblPrecio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPrecio.setText("Precio unidad");
+
+        ftxtPrecio.setEditable(false);
+        ftxtPrecio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.0"))));
+        ftxtPrecio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        lblCantidad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCantidad.setText("Cantidad");
+
+        ftxtCantidad.setEditable(false);
+        ftxtCantidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        ftxtCantidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        lblCaducidad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCaducidad.setText("Caducidad");
+
+        ftxtCaducidad.setEditable(false);
+        ftxtCaducidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+
+        lblPeso.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPeso.setText("Peso (Kg)");
+
+        ftxtPeso.setEditable(false);
+        ftxtPeso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+
+        javax.swing.GroupLayout panelResultadoEncontradoLayout = new javax.swing.GroupLayout(panelResultadoEncontrado);
+        panelResultadoEncontrado.setLayout(panelResultadoEncontradoLayout);
+        panelResultadoEncontradoLayout.setHorizontalGroup(
+            panelResultadoEncontradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelResultadoEncontradoLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(panelResultadoEncontradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblCaducidad)
+                    .addComponent(lblNombre)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                    .addComponent(lblCodigo)
+                    .addComponent(ftxtCodigo)
+                    .addComponent(lblPrecio)
+                    .addComponent(ftxtPrecio)
+                    .addComponent(lblCantidad)
+                    .addComponent(ftxtCantidad)
+                    .addComponent(lblPeso)
+                    .addComponent(ftxtCaducidad)
+                    .addComponent(ftxtPeso))
+                .addContainerGap(165, Short.MAX_VALUE))
+        );
+        panelResultadoEncontradoLayout.setVerticalGroup(
+            panelResultadoEncontradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelResultadoEncontradoLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(lblNombre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblCodigo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ftxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblPrecio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ftxtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(lblCantidad)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ftxtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblCaducidad)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ftxtCaducidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(lblPeso)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ftxtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(175, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout panelResultadosLayout = new javax.swing.GroupLayout(panelResultados);
         panelResultados.setLayout(panelResultadosLayout);
@@ -108,12 +212,12 @@ public class GUIBuscarPerecedero extends javax.swing.JFrame {
             panelResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelResultadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelResultadosLayout.createSequentialGroup()
-                        .addComponent(lblResultados)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
+                .addComponent(lblResultados)
+                .addContainerGap(700, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelResultadosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelResultadoEncontrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(184, 184, 184))
         );
         panelResultadosLayout.setVerticalGroup(
             panelResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +225,7 @@ public class GUIBuscarPerecedero extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblResultados)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                .addComponent(panelResultadoEncontrado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -143,7 +247,7 @@ public class GUIBuscarPerecedero extends javax.swing.JFrame {
                 .addComponent(panelBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(panelResultados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,10 +258,8 @@ public class GUIBuscarPerecedero extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBusquedaActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        listResultados.setModel(new DefaultListModel<>());
-        DefaultListModel<String> model = (DefaultListModel<String>) listResultados.getModel();
         String nombre;
-        String resultado;
+        Perecedero resultado;
         
         nombre = txtBusqueda.getText();
         
@@ -165,22 +267,44 @@ public class GUIBuscarPerecedero extends javax.swing.JFrame {
             resultado = servicioSupermercado.buscarPerecedero(nombre);
             
             if (resultado != null) {
-                model.addElement(resultado);
+                txtNombre.setText(resultado.getNombre());
+                ftxtCodigo.setValue(resultado.getCodigo());
+                ftxtPrecio.setValue(resultado.getPrecio());
+                ftxtCantidad.setValue(resultado.getCantidad());
+                ftxtCaducidad.setValue(resultado.getCaducidad());
+                ftxtPeso.setValue(resultado.getPesoUnidad());
+            } else {
+                JOptionPane.showMessageDialog(this, "No se encontraron coincidencias", "Sin resultados", JOptionPane.ERROR_MESSAGE);
             }
             
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JFormattedTextField ftxtCaducidad;
+    private javax.swing.JFormattedTextField ftxtCantidad;
+    private javax.swing.JFormattedTextField ftxtCodigo;
+    private javax.swing.JFormattedTextField ftxtPeso;
+    private javax.swing.JFormattedTextField ftxtPrecio;
     private javax.swing.JLabel lblBusqueda;
+    private javax.swing.JLabel lblCaducidad;
+    private javax.swing.JLabel lblCantidad;
+    private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblPeso;
+    private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblResultados;
-    private javax.swing.JList<String> listResultados;
     private javax.swing.JPanel panelBuscar;
+    private javax.swing.JPanel panelResultadoEncontrado;
     private javax.swing.JPanel panelResultados;
     private javax.swing.JTextField txtBusqueda;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

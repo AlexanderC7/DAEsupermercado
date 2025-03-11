@@ -217,7 +217,6 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         producto = servicioSupermercado.adicionarNoPerecedero(nombre, codigo, precio, cantidad, categoria, garantia);
         
         if (producto != null) {
-            servicioSupermercado.adicionarProductos(producto);
             txtNombre.setText(null);
             ftxtCodigo.setText(null);
             ftxtCantidad.setText(null);
