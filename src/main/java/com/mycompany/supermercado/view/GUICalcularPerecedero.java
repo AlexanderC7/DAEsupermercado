@@ -4,7 +4,9 @@
  */
 package com.mycompany.supermercado.view;
 
+import com.mycompany.supermercado.model.Perecedero;
 import com.mycompany.supermercado.servicios.ServicioSupermercado;
+import java.util.List;
 
 /**
  *
@@ -43,7 +45,7 @@ public class GUICalcularPerecedero extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Calcular Balance Perecedero");
-        setPreferredSize(new java.awt.Dimension(600, 400));
+        setPreferredSize(new java.awt.Dimension(440, 400));
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitulo.setText("BALANCE DE CUENTAS");
@@ -99,10 +101,10 @@ public class GUICalcularPerecedero extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblIVA)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ftxtIVA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ftxtIVA, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblStaticPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27))))
+                        .addComponent(lblStaticPorcentaje)
+                        .addGap(66, 66, 66))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addComponent(lblTitulo)
@@ -110,11 +112,11 @@ public class GUICalcularPerecedero extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(ftxtTotalPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(79, 79, 79)
-                        .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(ftxtTotalPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -142,7 +144,21 @@ public class GUICalcularPerecedero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        // TODO add your handling code here:
+        double IVA = 0.0;
+        double IVAcalculado = 0.0;
+        double resultado = 0.0;
+        List<Perecedero> perecederos;
+        
+        IVA = Double.parseDouble(ftxtIVA.getValue().toString().replace(',', '.'));
+        IVA /= 100;
+        perecederos = servicioSupermercado.listarPerecedero();
+        for (Perecedero perecedero : perecederos) {
+            resultado += perecedero.getPrecio() * perecedero.getCantidad();
+        }
+        IVAcalculado = resultado * IVA;
+        resultado += IVAcalculado;
+        
+        ftxtTotalPrecios.setValue(resultado);
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     private void ftxtTotalPreciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftxtTotalPreciosActionPerformed

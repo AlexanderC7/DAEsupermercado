@@ -288,7 +288,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itemPerecederoBuscarActionPerformed
 
     private void itemPerecederoCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPerecederoCalcularActionPerformed
-        // TODO add your handling code here:
+        GUICalcularPerecedero gUICalcularPerecedero = new GUICalcularPerecedero(servicioSupermercado);
+        gUICalcularPerecedero.setVisible(true);
     }//GEN-LAST:event_itemPerecederoCalcularActionPerformed
 
     private void itemNoPerecederoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNoPerecederoBuscarActionPerformed
