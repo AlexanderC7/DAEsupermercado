@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Actualizar producto Perecedero"/>
+    <Property name="title" type="java.lang.String" value="Actualizar producto No Perecedero"/>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[480, 680]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -24,7 +27,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="panelBusqueda" pref="438" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -32,7 +35,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Component id="panelResultadoEncontrado" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -60,23 +63,23 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="txtProducto" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="btnConsultar" max="32767" attributes="0"/>
-                                      <Component id="lblTitulo" max="32767" attributes="0"/>
-                                      <Component id="btnActualizar" max="32767" attributes="0"/>
+                                      <Component id="btnConsultar" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblTitulo" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btnActualizar" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="lblProducto" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -108,7 +111,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ACTUALIZACI&#xd3;N DE PRODUCTO PERECEDERO"/>
+            <Property name="text" type="java.lang.String" value="ACTUALIZACI&#xd3;N DE PRODUCTO NO PERECEDERO"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblProducto">
@@ -175,19 +178,21 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lblCaducidad" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblNombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtNombre" alignment="0" pref="216" max="32767" attributes="0"/>
-                      <Component id="lblCodigo" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="ftxtCodigo" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblPrecio" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="ftxtPrecio" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblCantidad" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="ftxtCantidad" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblPeso" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="ftxtPeso" alignment="0" max="32767" attributes="0"/>
-                      <Component id="dateCaducidad" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="chkGarantia" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblCaducidad" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblCodigo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="ftxtCodigo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblPrecio" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="ftxtPrecio" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblCantidad" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="ftxtCantidad" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblPeso" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbCategoria" alignment="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="165" max="32767" attributes="0"/>
               </Group>
@@ -215,12 +220,12 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="lblCaducidad" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="dateCaducidad" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="cmbCategoria" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="lblPeso" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ftxtPeso" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="13" max="32767" attributes="0"/>
+                  <Component id="chkGarantia" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -304,15 +309,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Caducidad"/>
-          </Properties>
-        </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="dateCaducidad">
-          <Properties>
-            <Property name="toolTipText" type="java.lang.String" value="Fecha de caducidad"/>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="0"/>
-            </Property>
+            <Property name="text" type="java.lang.String" value="Categor&#xed;a"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblPeso">
@@ -320,18 +317,43 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Peso (Kg)"/>
+            <Property name="text" type="java.lang.String" value="Garant&#xed;a"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="ftxtPeso">
+        <Component class="javax.swing.JComboBox" name="cmbCategoria">
           <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="#0.00" subtype="-1" type="0"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="10">
+                <StringItem index="0" value="Alimentos No Perecederos"/>
+                <StringItem index="1" value="Art&#xed;culos de Cocina"/>
+                <StringItem index="2" value="Bater&#xed;as y Pilas"/>
+                <StringItem index="3" value="Herramientas y Ferreter&#xed;a"/>
+                <StringItem index="4" value="Hogar y Decoraci&#xf3;n"/>
+                <StringItem index="5" value="Papel y Desechables"/>
+                <StringItem index="6" value="Productos de Aseo Personal"/>
+                <StringItem index="7" value="Productos de Limpieza"/>
+                <StringItem index="8" value="Productos para Mascotas"/>
+                <StringItem index="9" value="&#xda;tiles de Oficina y Escolar"/>
+              </StringArray>
+            </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="chkGarantia">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Tiene garant&#xed;a"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkGarantiaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

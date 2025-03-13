@@ -5,26 +5,25 @@
 package com.mycompany.supermercado.view;
 
 import com.mycompany.supermercado.exceptions.ServicioException;
-import com.mycompany.supermercado.model.Perecedero;
+import com.mycompany.supermercado.model.NoPerecedero;
 import com.mycompany.supermercado.model.Producto;
 import com.mycompany.supermercado.servicios.ServicioSupermercado;
-import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Alexander
  */
-public class GUIActualizarPerecedero extends javax.swing.JFrame {
+public class GUIActualizarNoPerecedero extends javax.swing.JFrame {
 
     private ServicioSupermercado servicioSupermercado;
     
     private boolean encontrado = false;
     
     /**
-     * Creates new form GUIActualizarPerecedero
+     * Creates new form GUIActualizarNoPerecedero
      */
-    public GUIActualizarPerecedero(ServicioSupermercado servicio) {
+    public GUIActualizarNoPerecedero(ServicioSupermercado servicio) {
         this.servicioSupermercado = servicio;
         initComponents();
         setLocationRelativeTo(this);
@@ -55,17 +54,18 @@ public class GUIActualizarPerecedero extends javax.swing.JFrame {
         lblCantidad = new javax.swing.JLabel();
         ftxtCantidad = new javax.swing.JFormattedTextField();
         lblCaducidad = new javax.swing.JLabel();
-        dateCaducidad = new com.toedter.calendar.JDateChooser();
         lblPeso = new javax.swing.JLabel();
-        ftxtPeso = new javax.swing.JFormattedTextField();
+        cmbCategoria = new javax.swing.JComboBox<>();
+        chkGarantia = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Actualizar producto Perecedero");
+        setTitle("Actualizar producto No Perecedero");
+        setPreferredSize(new java.awt.Dimension(480, 680));
 
         panelBusqueda.setPreferredSize(new java.awt.Dimension(450, 169));
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitulo.setText("ACTUALIZACIÓN DE PRODUCTO PERECEDERO");
+        lblTitulo.setText("ACTUALIZACIÓN DE PRODUCTO NO PERECEDERO");
 
         lblProducto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblProducto.setText("Nombre del producto a actualizar");
@@ -102,7 +102,7 @@ public class GUIActualizarPerecedero extends javax.swing.JFrame {
         panelBusquedaLayout.setHorizontalGroup(
             panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBusquedaLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(9, 9, 9)
                 .addGroup(panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBusquedaLayout.createSequentialGroup()
                         .addGroup(panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -166,16 +166,21 @@ public class GUIActualizarPerecedero extends javax.swing.JFrame {
         ftxtCantidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         lblCaducidad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblCaducidad.setText("Caducidad");
-
-        dateCaducidad.setToolTipText("Fecha de caducidad");
-        dateCaducidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblCaducidad.setText("Categoría");
 
         lblPeso.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblPeso.setText("Peso (Kg)");
+        lblPeso.setText("Garantía");
 
-        ftxtPeso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        ftxtPeso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cmbCategoria.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cmbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alimentos No Perecederos", "Artículos de Cocina", "Baterías y Pilas", "Herramientas y Ferretería", "Hogar y Decoración", "Papel y Desechables", "Productos de Aseo Personal", "Productos de Limpieza", "Productos para Mascotas", "Útiles de Oficina y Escolar" }));
+
+        chkGarantia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        chkGarantia.setText("Tiene garantía");
+        chkGarantia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkGarantiaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelResultadoEncontradoLayout = new javax.swing.GroupLayout(panelResultadoEncontrado);
         panelResultadoEncontrado.setLayout(panelResultadoEncontradoLayout);
@@ -183,19 +188,20 @@ public class GUIActualizarPerecedero extends javax.swing.JFrame {
             panelResultadoEncontradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelResultadoEncontradoLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(panelResultadoEncontradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblCaducidad)
-                    .addComponent(lblNombre)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                    .addComponent(lblCodigo)
-                    .addComponent(ftxtCodigo)
-                    .addComponent(lblPrecio)
-                    .addComponent(ftxtPrecio)
-                    .addComponent(lblCantidad)
-                    .addComponent(ftxtCantidad)
-                    .addComponent(lblPeso)
-                    .addComponent(ftxtPeso)
-                    .addComponent(dateCaducidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelResultadoEncontradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chkGarantia)
+                    .addGroup(panelResultadoEncontradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblCaducidad)
+                        .addComponent(lblNombre)
+                        .addComponent(txtNombre)
+                        .addComponent(lblCodigo)
+                        .addComponent(ftxtCodigo)
+                        .addComponent(lblPrecio)
+                        .addComponent(ftxtPrecio)
+                        .addComponent(lblCantidad)
+                        .addComponent(ftxtCantidad)
+                        .addComponent(lblPeso)
+                        .addComponent(cmbCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(165, Short.MAX_VALUE))
         );
         panelResultadoEncontradoLayout.setVerticalGroup(
@@ -220,26 +226,26 @@ public class GUIActualizarPerecedero extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblCaducidad)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dateCaducidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(cmbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(lblPeso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ftxtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addComponent(chkGarantia)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 438, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(panelResultadoEncontrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,20 +266,20 @@ public class GUIActualizarPerecedero extends javax.swing.JFrame {
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         String nombre;
-        Perecedero resultado;
-        
+        NoPerecedero resultado;
+
         nombre = txtProducto.getText();
-        
+
         if (nombre != null) {
-            resultado = servicioSupermercado.buscarPerecedero(nombre);
-            
+            resultado = servicioSupermercado.buscarNoPerecedero(nombre);
+
             if (resultado != null) {
                 txtNombre.setText(resultado.getNombre());
                 ftxtCodigo.setValue(resultado.getCodigo());
                 ftxtPrecio.setValue(resultado.getPrecio());
                 ftxtCantidad.setValue(resultado.getCantidad());
-                dateCaducidad.setDate(resultado.getCaducidad());
-                ftxtPeso.setValue(resultado.getPesoUnidad());
+                cmbCategoria.setSelectedItem(resultado.getCategoria());
+                chkGarantia.setSelected(resultado.getGarantia());
                 encontrado = true;
             } else {
                 txtProducto.setText(null);
@@ -281,18 +287,14 @@ public class GUIActualizarPerecedero extends javax.swing.JFrame {
                 ftxtCodigo.setValue(null);
                 ftxtPrecio.setValue(null);
                 ftxtCantidad.setValue(null);
-                dateCaducidad.setDate(null);
-                ftxtPeso.setValue(null);
+                cmbCategoria.setSelectedIndex(1);
+                chkGarantia.setSelected(false);
                 encontrado = false;
                 JOptionPane.showMessageDialog(this, "No se encontraron coincidencias", "Sin resultados", JOptionPane.ERROR_MESSAGE);
             }
-            
+
         }
     }//GEN-LAST:event_btnConsultarActionPerformed
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         Producto    producto;
@@ -300,47 +302,55 @@ public class GUIActualizarPerecedero extends javax.swing.JFrame {
         int         codigo;
         double      precio;
         int         cantidad;
-        Date        caducidad;
-        double      peso;
-        
+        String      categoria;
+        boolean     garantia;
+
         if (txtProducto.getText() != null) {
             nombre = txtProducto.getText();
             codigo = Integer.parseInt(ftxtCodigo.getText());
             precio = Double.parseDouble(ftxtPrecio.getText().replace(",", "."));
             cantidad = Integer.parseInt(ftxtCantidad.getText());
-            caducidad = dateCaducidad.getDate();
-            peso = Double.parseDouble(ftxtPeso.getText().replace(",", "."));
+            categoria = cmbCategoria.getSelectedItem().toString();
+            garantia = chkGarantia.isSelected();
 
             try {
-                servicioSupermercado.eliminarPerecedero(nombre);
-                
-                producto = servicioSupermercado.adicionarPerecedero(nombre, codigo, precio, cantidad, caducidad, peso);
+                servicioSupermercado.eliminarNoPerecedero(nombre);
+
+                producto = servicioSupermercado.adicionarNoPerecedero(nombre, codigo, precio, cantidad, categoria, garantia);
 
                 if (producto != null) {
                     txtNombre.setText(null);
                     ftxtCodigo.setText(null);
                     ftxtCantidad.setText(null);
                     ftxtPrecio.setText(null);
-                    dateCaducidad.setDate(null);
-                    ftxtPeso.setText(null);
+                    cmbCategoria.setSelectedIndex(1);
+                    chkGarantia.setSelected(false);
                     JOptionPane.showMessageDialog(this, "Producto actualizado");
                 }
             } catch (ServicioException e) {
                 JOptionPane.showMessageDialog(this, e.getMessage(), "Error de actualización", JOptionPane.ERROR_MESSAGE);
             }
-            
+
         }
-        
+
     }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void chkGarantiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkGarantiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkGarantiaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnConsultar;
-    private com.toedter.calendar.JDateChooser dateCaducidad;
+    private javax.swing.JCheckBox chkGarantia;
+    private javax.swing.JComboBox<String> cmbCategoria;
     private javax.swing.JFormattedTextField ftxtCantidad;
     private javax.swing.JFormattedTextField ftxtCodigo;
-    private javax.swing.JFormattedTextField ftxtPeso;
     private javax.swing.JFormattedTextField ftxtPrecio;
     private javax.swing.JLabel lblCaducidad;
     private javax.swing.JLabel lblCantidad;

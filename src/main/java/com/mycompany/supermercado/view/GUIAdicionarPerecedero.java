@@ -196,13 +196,13 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearPerecederoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPerecederoActionPerformed
-        Producto producto;
-        String  nombre;
-        int     codigo;
-        double  precio;
-        int     cantidad;
-        Date  caducidad;
-        double  peso;
+        Producto    producto;
+        String      nombre;
+        int         codigo;
+        double      precio;
+        int         cantidad;
+        Date        caducidad;
+        double      peso;
         
         nombre = txtNombre.getText();
         codigo = Integer.parseInt(ftxtCodigo.getText());
