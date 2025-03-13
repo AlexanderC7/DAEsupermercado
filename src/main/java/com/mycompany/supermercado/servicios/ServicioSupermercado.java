@@ -69,13 +69,24 @@ public class ServicioSupermercado implements IServicioSupermercado{
     }
 
     @Override
-    public void calcularPerecedero(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public double calcularPerecedero(double iva) {
+        double ivaAgregado = iva;
+        double sumPrecios  = 0.0;
+        double resultadoTotal = 0.0;
+        
+        ivaAgregado /= 100;
+        for (Perecedero productoPerecedero : productosPerecederos) {
+            sumPrecios += productoPerecedero.getPrecio() * productoPerecedero.getCantidad();
+        }
+        resultadoTotal = sumPrecios + (sumPrecios*ivaAgregado);
+        
+        return resultadoTotal;
     }
 
     @Override
-    public void calcularNoPerecedero(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public double calcularNoPerecedero(double iva) {
+        double ivaAgregado = iva;
+        return 1;
     }
 
     @Override

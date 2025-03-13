@@ -19,8 +19,8 @@ public interface IServicioSupermercado {
     public NoPerecedero adicionarNoPerecedero(String nombre, int codigo, double precio, int cantidad, String categoria, boolean garantia);
     public Perecedero buscarPerecedero(String nombre);
     public NoPerecedero buscarNoPerecedero(String nombre);
-    public void calcularPerecedero(int codigo);
-    public void calcularNoPerecedero(int codigo);
+    public double calcularPerecedero(double iva);
+    public double calcularNoPerecedero(double iva);
     public List <Perecedero> listarPerecedero();
     public List <NoPerecedero> listarNoPerecedero();
     public void eliminarPerecedero(String nombre) throws ServicioException;

@@ -145,18 +145,10 @@ public class GUICalcularPerecedero extends javax.swing.JFrame {
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         double IVA = 0.0;
-        double IVAcalculado = 0.0;
         double resultado = 0.0;
-        List<Perecedero> perecederos;
         
         IVA = Double.parseDouble(ftxtIVA.getValue().toString().replace(',', '.'));
-        IVA /= 100;
-        perecederos = servicioSupermercado.listarPerecedero();
-        for (Perecedero perecedero : perecederos) {
-            resultado += perecedero.getPrecio() * perecedero.getCantidad();
-        }
-        IVAcalculado = resultado * IVA;
-        resultado += IVAcalculado;
+        resultado = servicioSupermercado.calcularPerecedero(IVA);
         
         ftxtTotalPrecios.setValue(resultado);
     }//GEN-LAST:event_btnCalcularActionPerformed
