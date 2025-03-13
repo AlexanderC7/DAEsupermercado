@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Alexander
  */
-public class GUIEliminarNoPerecedero extends javax.swing.JFrame {
+public class GUIEliminarNoPerecedero extends javax.swing.JFrame implements IActualizacion{
 
     private ServicioSupermercado servicioSupermercado;
     
@@ -24,6 +24,7 @@ public class GUIEliminarNoPerecedero extends javax.swing.JFrame {
      */
     public GUIEliminarNoPerecedero(ServicioSupermercado servicio) {
         this.servicioSupermercado = servicio;
+        servicioSupermercado.registrarGUI(this);
         initComponents();
         setLocationRelativeTo(null);
         lblEstadoConsulta.setText(null);
@@ -62,6 +63,11 @@ public class GUIEliminarNoPerecedero extends javax.swing.JFrame {
         setTitle("Eliminar Producto no Perecedero");
         setPreferredSize(new java.awt.Dimension(440, 680));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         txtEliminar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtEliminar.setToolTipText("Ingrese nombre del producto");
@@ -335,6 +341,10 @@ public class GUIEliminarNoPerecedero extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCategoriaActionPerformed
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        servicioSupermercado.desregistrarGUI(this);
+    }//GEN-LAST:event_formWindowClosed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultar;
@@ -357,4 +367,9 @@ public class GUIEliminarNoPerecedero extends javax.swing.JFrame {
     private javax.swing.JTextField txtGarantia;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actualizarGUI() {
+        //
+    }
 }

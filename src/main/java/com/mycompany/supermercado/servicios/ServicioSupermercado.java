@@ -8,6 +8,7 @@ import com.mycompany.supermercado.exceptions.ProductoException;
 import com.mycompany.supermercado.exceptions.ServicioException;
 import com.mycompany.supermercado.model.NoPerecedero;
 import com.mycompany.supermercado.model.Perecedero;
+import com.mycompany.supermercado.view.IActualizacion;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -21,6 +22,8 @@ public class ServicioSupermercado implements IServicioSupermercado{
     
     private static List<NoPerecedero> productosNoPerecederos = new ArrayList();
     private static List<Perecedero> productosPerecederos = new ArrayList();
+    
+    private List<IActualizacion> guis = new ArrayList<>();
 
     @Override
     public NoPerecedero adicionarNoPerecedero(String nombre, int codigo, double precio, int cantidad, String categoria, boolean garantia) {
@@ -32,6 +35,7 @@ public class ServicioSupermercado implements IServicioSupermercado{
             System.out.println("[Error]: " + e.getMessage());
             return null;
         }
+        actualizarGUI();
         return noPerecedero;
     }
 
@@ -45,6 +49,7 @@ public class ServicioSupermercado implements IServicioSupermercado{
             System.out.println("[Error]: " + e.getMessage());
             return null;
         }
+        actualizarGUI();
         return perecedero;
     }
 
@@ -119,6 +124,7 @@ public class ServicioSupermercado implements IServicioSupermercado{
                 if (producto instanceof Perecedero) {
                     iterator.remove();
                     productoEncontrado = true;
+                    actualizarGUI();
                     return;
                 }
             }
@@ -127,6 +133,7 @@ public class ServicioSupermercado implements IServicioSupermercado{
         if (!productoEncontrado) {
             throw new ServicioException("Producto no encontrado");
         }
+        actualizarGUI();
     }
 
     @Override
@@ -140,6 +147,7 @@ public class ServicioSupermercado implements IServicioSupermercado{
                 if (producto instanceof NoPerecedero) {
                     iterator.remove();
                     productoEncontrado = true;
+                    actualizarGUI();
                     return;
                 }
             }
@@ -148,10 +156,21 @@ public class ServicioSupermercado implements IServicioSupermercado{
         if (!productoEncontrado) {
             throw new ServicioException("Producto no encontrado");
         }
+        actualizarGUI();
     }
 
-
+    public void registrarGUI(IActualizacion gui) {
+        guis.add(gui);
+    }
     
-
+    public void desregistrarGUI(IActualizacion gui) {
+        guis.remove(gui);
+    }
+    
+    private void actualizarGUI() {
+        for (IActualizacion gui : guis) {
+            gui.actualizarGUI();
+        }
+    }
     
 }

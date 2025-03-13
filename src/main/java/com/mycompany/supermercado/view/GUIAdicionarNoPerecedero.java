@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Alexander
  */
-public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
+public class GUIAdicionarNoPerecedero extends javax.swing.JFrame implements IActualizacion{
 
     private ServicioSupermercado servicioSupermercado;
     
@@ -21,6 +21,7 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
      */
     public GUIAdicionarNoPerecedero(ServicioSupermercado servicio) {
         this.servicioSupermercado = servicio;
+        servicioSupermercado.registrarGUI(this);
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -58,6 +59,11 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         setTitle("Adicionar Producto No Perecedero");
         setPreferredSize(new java.awt.Dimension(400, 600));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         btnCrearNoPerecedero.setBackground(new java.awt.Color(255, 153, 102));
         btnCrearNoPerecedero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -198,6 +204,7 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void btnCrearNoPerecederoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearNoPerecederoActionPerformed
         Producto producto;
         String  nombre;
@@ -235,6 +242,10 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_chkGarantiaActionPerformed
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        servicioSupermercado.desregistrarGUI(this);
+    }//GEN-LAST:event_formWindowClosed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearNoPerecedero;
@@ -253,4 +264,9 @@ public class GUIAdicionarNoPerecedero extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrollPanelCrear;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actualizarGUI() {
+        //
+    }
 }
