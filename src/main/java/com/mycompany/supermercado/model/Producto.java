@@ -70,6 +70,14 @@ public abstract class Producto {
         }
         this.cantidad = cantidad;
     }
+    
+    public double calcularPrecioFinal() {
+        double precioFinal  = 0.0;
+        
+        precioFinal = getPrecio() * getCantidad();
+        
+        return precioFinal;
+    }
 
     @Override
     public String toString() {

@@ -82,6 +82,19 @@ public class NoPerecedero extends Producto{
     }
 
     @Override
+    public double calcularPrecioFinal() {
+        double precioFinal  = 0.0;
+        double porcentajeGanancia = 0.12;
+        
+        precioFinal = getPrecio() * getCantidad();
+        precioFinal += precioFinal*porcentajeGanancia;
+        
+        return precioFinal;
+    }
+
+    
+    
+    @Override
     public String toString() {
         return "Resultado:{" + "nombre=" + getNombre() + "codigo=" + getCodigo() + "precio=" + getPrecio() + "cantidad=" + getCantidad() + "categoria=" + getCategoria() + ", garantia=" + getGarantia() + '}';
     }

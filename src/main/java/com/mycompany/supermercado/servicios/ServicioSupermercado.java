@@ -76,7 +76,7 @@ public class ServicioSupermercado implements IServicioSupermercado{
         
         ivaAgregado /= 100;
         for (Perecedero productoPerecedero : productosPerecederos) {
-            sumPrecios += productoPerecedero.getPrecio() * productoPerecedero.getCantidad();
+            sumPrecios += productoPerecedero.calcularPrecioFinal();
         }
         resultadoTotal = sumPrecios + (sumPrecios*ivaAgregado);
         
@@ -86,7 +86,16 @@ public class ServicioSupermercado implements IServicioSupermercado{
     @Override
     public double calcularNoPerecedero(double iva) {
         double ivaAgregado = iva;
-        return 1;
+        double sumPrecios  = 0.0;
+        double resultadoTotal = 0.0;
+        
+        ivaAgregado /= 100;
+        for (NoPerecedero productoNoPerecedero : productosNoPerecederos) {
+            sumPrecios += productoNoPerecedero.calcularPrecioFinal();
+        }
+        resultadoTotal = sumPrecios + (sumPrecios*ivaAgregado);
+        
+        return resultadoTotal;
     }
 
     @Override

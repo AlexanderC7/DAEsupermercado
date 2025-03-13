@@ -86,6 +86,18 @@ public class Perecedero extends Producto{
     }
 
     @Override
+    public double calcularPrecioFinal() {
+        double precioFinal  = 0.0;
+        double porcentajeGanancia = 0.08;
+        
+        precioFinal = getPrecio() * getCantidad();
+        precioFinal += precioFinal*porcentajeGanancia;
+        
+        return precioFinal;
+    }
+    
+
+    @Override
     public String toString() {
         return "Resultado:{" + "nombre=" + getNombre() + "codigo=" + getCodigo() + "precio=" + getPrecio() + "cantidad=" + getCantidad() + "caducidad=" + getCaducidad() + ", pesoUnidad=" + getPesoUnidad() + '}';
     }
