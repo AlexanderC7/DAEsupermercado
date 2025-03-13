@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Alexander
  */
-public class GUIListarPerecedero extends javax.swing.JFrame {
+public class GUIListarPerecedero extends javax.swing.JFrame implements IActualizacion{
 
     private ServicioSupermercado servicioSupermercado;
     /**
@@ -20,7 +20,9 @@ public class GUIListarPerecedero extends javax.swing.JFrame {
      */
     public GUIListarPerecedero(ServicioSupermercado servicio) {
         this.servicioSupermercado = servicio;
+        servicioSupermercado.registrarGUI(this);
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     public void setProductosToTable(List <Perecedero> productos) {
@@ -52,10 +54,10 @@ public class GUIListarPerecedero extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Listar productos perecederos");
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 480));
         setResizable(false);
 
-        lblListar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblListar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblListar.setText("Listado de productos Perecederos");
 
         tableListado.setModel(new javax.swing.table.DefaultTableModel(
@@ -92,12 +94,12 @@ public class GUIListarPerecedero extends javax.swing.JFrame {
             panelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelListarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelListarLayout.createSequentialGroup()
-                        .addComponent(lblListar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(scrollListado, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE))
+                .addComponent(scrollListado, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(panelListarLayout.createSequentialGroup()
+                .addGap(232, 232, 232)
+                .addComponent(lblListar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelListarLayout.setVerticalGroup(
             panelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,7 +107,7 @@ public class GUIListarPerecedero extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblListar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollListado, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollListado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -136,7 +138,7 @@ public class GUIListarPerecedero extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelListar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(43, 43, 43)
                 .addComponent(btnListar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(219, 219, 219))
         );
@@ -157,4 +159,10 @@ public class GUIListarPerecedero extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrollListado;
     private javax.swing.JTable tableListado;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actualizarGUI() {
+        List productosPerecederos = servicioSupermercado.listarPerecedero();
+        setProductosToTable(productosPerecederos);
+    }
 }

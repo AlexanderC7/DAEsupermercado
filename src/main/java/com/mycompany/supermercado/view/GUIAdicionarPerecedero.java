@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Alexander
  */
-public class GUIAdicionarPerecedero extends javax.swing.JFrame {
+public class GUIAdicionarPerecedero extends javax.swing.JFrame implements IActualizacion{
 
     private ServicioSupermercado servicioSupermercado;
     /**
@@ -21,8 +21,9 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
      */
     public GUIAdicionarPerecedero(ServicioSupermercado servicio) {
         this.servicioSupermercado = servicio;
+        servicioSupermercado.registrarGUI(this);
         initComponents();
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(this);
     }
 
     public void mostrarMensajeError(String errorMessage){
@@ -57,6 +58,11 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Adicionar Producto Perecedero");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         btnCrearPerecedero.setBackground(new java.awt.Color(255, 153, 102));
         btnCrearPerecedero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -232,6 +238,10 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ftxtPrecioActionPerformed
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        servicioSupermercado.desregistrarGUI(this);
+    }//GEN-LAST:event_formWindowClosed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearPerecedero;
@@ -250,4 +260,9 @@ public class GUIAdicionarPerecedero extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrollPanelCrear;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actualizarGUI() {
+        //
+    }
 }

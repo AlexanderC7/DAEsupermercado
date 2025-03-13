@@ -7,7 +7,6 @@ package com.mycompany.supermercado.view;
 import com.mycompany.supermercado.model.NoPerecedero;
 import com.mycompany.supermercado.servicios.ServicioSupermercado;
 import java.util.List;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -28,7 +27,16 @@ public class GUIListarNoPerecedero extends javax.swing.JFrame implements IActual
     public void setProductosToTable(List <NoPerecedero> productos) {
         int i = 0;
         
-        
+        for (NoPerecedero producto : productos) {
+            tableListado.setValueAt("", i, 0);
+            tableListado.setValueAt("", i, 1);
+            tableListado.setValueAt("", i, 2);
+            tableListado.setValueAt("", i, 3);
+            tableListado.setValueAt("", i, 4);
+            tableListado.setValueAt("", i, 5);
+            i++;
+        }
+        i = 0;
         for (NoPerecedero producto : productos) {
             tableListado.setValueAt(producto.getCodigo(), i, 0);
             tableListado.setValueAt(producto.getNombre(), i, 1);
