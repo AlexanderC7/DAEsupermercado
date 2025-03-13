@@ -41,14 +41,15 @@ public class GUIPrincipal extends javax.swing.JFrame {
         itemArchivoSalir = new javax.swing.JMenuItem();
         menuPerecedero = new javax.swing.JMenu();
         itemPerecederoAdicionar = new javax.swing.JMenuItem();
+        itemPerecederoActualizar = new javax.swing.JMenuItem();
         itemPerecederoBuscar = new javax.swing.JMenuItem();
         itemPerecederoCalcular = new javax.swing.JMenuItem();
         itemPerecederoEliminar = new javax.swing.JMenuItem();
         itemPerecederoListar = new javax.swing.JMenuItem();
         separadorPerecedero = new javax.swing.JPopupMenu.Separator();
         itemDesechoAdicionar = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        itemDesechoActualizar = new javax.swing.JMenuItem();
+        itemDesechoEliminar = new javax.swing.JMenuItem();
         menuNoPerecedero = new javax.swing.JMenu();
         itemNoPerecederoAdicionar = new javax.swing.JMenuItem();
         itemNoPerecederoBuscar = new javax.swing.JMenuItem();
@@ -90,8 +91,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         menuPerecedero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         menuPerecedero.setMargin(new java.awt.Insets(6, 6, 6, 6));
 
-        itemPerecederoAdicionar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itemPerecederoAdicionar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemPerecederoAdicionar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, 0));
+        itemPerecederoAdicionar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         itemPerecederoAdicionar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_agregar.png")));
         itemPerecederoAdicionar.setText("Adicionar producto");
         itemPerecederoAdicionar.setMargin(new java.awt.Insets(6, 6, 6, 6));
@@ -102,8 +103,18 @@ public class GUIPrincipal extends javax.swing.JFrame {
         });
         menuPerecedero.add(itemPerecederoAdicionar);
 
-        itemPerecederoBuscar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itemPerecederoBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemPerecederoActualizar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, 0));
+        itemPerecederoActualizar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        itemPerecederoActualizar.setText("Actualizar producto");
+        itemPerecederoActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemPerecederoActualizarActionPerformed(evt);
+            }
+        });
+        menuPerecedero.add(itemPerecederoActualizar);
+
+        itemPerecederoBuscar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, 0));
+        itemPerecederoBuscar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         itemPerecederoBuscar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_buscar.png")));
         itemPerecederoBuscar.setText("Buscar producto");
         itemPerecederoBuscar.setMargin(new java.awt.Insets(6, 6, 6, 6));
@@ -114,8 +125,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         });
         menuPerecedero.add(itemPerecederoBuscar);
 
-        itemPerecederoCalcular.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itemPerecederoCalcular.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemPerecederoCalcular.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, 0));
+        itemPerecederoCalcular.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         itemPerecederoCalcular.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_calcular.png")));
         itemPerecederoCalcular.setText("Calcular producto");
         itemPerecederoCalcular.setMargin(new java.awt.Insets(6, 6, 6, 6));
@@ -126,8 +137,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         });
         menuPerecedero.add(itemPerecederoCalcular);
 
-        itemPerecederoEliminar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itemPerecederoEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemPerecederoEliminar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, 0));
+        itemPerecederoEliminar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         itemPerecederoEliminar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_eliminar.png")));
         itemPerecederoEliminar.setText("Eliminar producto");
         itemPerecederoEliminar.setMargin(new java.awt.Insets(6, 6, 6, 6));
@@ -138,8 +149,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
         });
         menuPerecedero.add(itemPerecederoEliminar);
 
-        itemPerecederoListar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itemPerecederoListar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemPerecederoListar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_6, 0));
+        itemPerecederoListar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         itemPerecederoListar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_listar.png")));
         itemPerecederoListar.setText("Listar productos");
         itemPerecederoListar.addActionListener(new java.awt.event.ActionListener() {
@@ -150,25 +161,25 @@ public class GUIPrincipal extends javax.swing.JFrame {
         menuPerecedero.add(itemPerecederoListar);
         menuPerecedero.add(separadorPerecedero);
 
-        itemDesechoAdicionar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_6, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemDesechoAdicionar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_7, 0));
         itemDesechoAdicionar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         itemDesechoAdicionar.setText("Adicionar desecho");
         menuPerecedero.add(itemDesechoAdicionar);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_7, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jMenuItem1.setText("Actualizar desecho");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        itemDesechoActualizar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_8, 0));
+        itemDesechoActualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemDesechoActualizar.setText("Actualizar desecho");
+        itemDesechoActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                itemDesechoActualizarActionPerformed(evt);
             }
         });
-        menuPerecedero.add(jMenuItem1);
+        menuPerecedero.add(itemDesechoActualizar);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_8, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jMenuItem2.setText("Eliminar desecho");
-        menuPerecedero.add(jMenuItem2);
+        itemDesechoEliminar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_9, 0));
+        itemDesechoEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        itemDesechoEliminar.setText("Eliminar desecho");
+        menuPerecedero.add(itemDesechoEliminar);
 
         menuBarPrincipal.add(menuPerecedero);
 
@@ -204,6 +215,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         itemNoPerecederoCalcular.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/icon_calcular.png")));
         itemNoPerecederoCalcular.setText("Calcular producto");
         itemNoPerecederoCalcular.setMargin(new java.awt.Insets(6, 6, 6, 6));
+        itemNoPerecederoCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemNoPerecederoCalcularActionPerformed(evt);
+            }
+        });
         menuNoPerecedero.add(itemNoPerecederoCalcular);
 
         itemNoPerecederoEliminar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -322,26 +338,37 @@ public class GUIPrincipal extends javax.swing.JFrame {
         gUIBuscarNoPerecedero.setVisible(true);
     }//GEN-LAST:event_itemNoPerecederoBuscarActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void itemDesechoActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemDesechoActualizarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_itemDesechoActualizarActionPerformed
+
+    private void itemPerecederoActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPerecederoActualizarActionPerformed
+        GUIActualizarPerecedero gUIActualizarPerecedero = new GUIActualizarPerecedero(servicioSupermercado);
+        gUIActualizarPerecedero.setVisible(true);
+    }//GEN-LAST:event_itemPerecederoActualizarActionPerformed
+
+    private void itemNoPerecederoCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNoPerecederoCalcularActionPerformed
+        GUICalcularNoPerecedero gUICalcularNoPerecedero = new GUICalcularNoPerecedero(servicioSupermercado);
+        gUICalcularNoPerecedero.setVisible(true);
+    }//GEN-LAST:event_itemNoPerecederoCalcularActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itemArchivoSalir;
     private javax.swing.JMenuItem itemAyudaAcerca;
+    private javax.swing.JMenuItem itemDesechoActualizar;
     private javax.swing.JMenuItem itemDesechoAdicionar;
+    private javax.swing.JMenuItem itemDesechoEliminar;
     private javax.swing.JMenuItem itemNoPerecederoAdicionar;
     private javax.swing.JMenuItem itemNoPerecederoBuscar;
     private javax.swing.JMenuItem itemNoPerecederoCalcular;
     private javax.swing.JMenuItem itemNoPerecederoEliminar;
     private javax.swing.JMenuItem itemNoPerecederoListar;
+    private javax.swing.JMenuItem itemPerecederoActualizar;
     private javax.swing.JMenuItem itemPerecederoAdicionar;
     private javax.swing.JMenuItem itemPerecederoBuscar;
     private javax.swing.JMenuItem itemPerecederoCalcular;
     private javax.swing.JMenuItem itemPerecederoEliminar;
     private javax.swing.JMenuItem itemPerecederoListar;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JLabel lblRazonSocial;
     private javax.swing.JMenu menuArchivo;
     private javax.swing.JMenu menuAyuda;
