@@ -4,10 +4,14 @@
  */
 package com.mycompany.supermercado.model;
 
+import lombok.Getter;
+
 /**
  *
  * @author Alexander
  */
+
+@Getter
 public class Supermercado {
     private int NIT;
     private String razonSocial;
@@ -20,6 +24,8 @@ public class Supermercado {
     public static Supermercado getInstance() {
         if (supermercado != null) {
             supermercado = new Supermercado();
+            supermercado.NIT = 12345678;
+            supermercado.razonSocial = "Supermercado 'Donde los electrónicos'";
         }
         return supermercado;
     }
