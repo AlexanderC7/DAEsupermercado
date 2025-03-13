@@ -4,6 +4,7 @@
  */
 package com.mycompany.supermercado.view;
 
+import com.mycompany.supermercado.model.Supermercado;
 import com.mycompany.supermercado.servicios.ServicioSupermercado;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
@@ -24,6 +25,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         this.servicioSupermercado = new ServicioSupermercado();
         initComponents();
         setLocationRelativeTo(null);
+        lblRazonSocial.setText(Supermercado.getInstance().getRazonSocial());
     }
 
     /**
