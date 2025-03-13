@@ -22,10 +22,10 @@ public class Supermercado {
     }
     
     public static Supermercado getInstance() {
-        if (supermercado != null) {
+        if (supermercado == null) {
             supermercado = new Supermercado();
             supermercado.NIT = 12345678;
-            supermercado.razonSocial = "Supermercado 'Donde los electrónicos'";
+            supermercado.razonSocial = "Supermercado Donde los electrónicos";
         }
         return supermercado;
     }

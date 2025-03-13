@@ -18,14 +18,17 @@ import javax.swing.ImageIcon;
 public class GUIPrincipal extends javax.swing.JFrame {
 
     private ServicioSupermercado servicioSupermercado;
+    
+    
     /**
      * Creates new form GUIPrincipal
      */
     public GUIPrincipal() {
+        
         this.servicioSupermercado = new ServicioSupermercado();
         initComponents();
         setLocationRelativeTo(null);
-        lblRazonSocial.setText(Supermercado.getInstance().getRazonSocial());
+        lblRazonSocial.setText("Supermercado Donde los electrónicos");
     }
 
     /**
